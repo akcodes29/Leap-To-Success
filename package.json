@@ -2,7 +2,7 @@
   "name": "aads",
   "version": "1.0.0",
   "description": "+ Abby Johnson       https://github.com/abbyjo\r + Andrea Keriazes    https://github.com/akcodes29\r + Daniel Longacre    https://github.com/DanielLongacre\r + Sarah Goodell      https://github.com/sgoodsss",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node seeds/seed.js",
