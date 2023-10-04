@@ -1,0 +1,35 @@
+{
+  "name": "aads",
+  "version": "1.0.0",
+  "description": "+ Abby Johnson       https://github.com/abbyjo\r + Andrea Keriazes    https://github.com/akcodes29\r + Daniel Longacre    https://github.com/DanielLongacre\r + Sarah Goodell      https://github.com/sgoodsss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seeds/seed.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akcodes29/AADS.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Sequelize",
+    "Handlebars",
+    "Express",
+    "mysql"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akcodes29/AADS/issues"
+  },
+  "homepage": "https://github.com/akcodes29/AADS#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.1",
+    "sequelize": "^6.33.0"
+  }
+}
