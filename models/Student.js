@@ -24,10 +24,9 @@ Student.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        username: {
+        userName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
+            allowNull: false
         },
         password: {
             type: DataTypes.STRING,
