@@ -1,0 +1,2 @@
+
+displayStudent(student);
