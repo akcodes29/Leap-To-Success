@@ -1,17 +1,24 @@
 /* Put Google fonts here and colors in variables */
-/* :root {
+:root {
     --print-font: 'Quicksand', sans-serif;
     --cursive: 'Dancing Script', cursive;
-} */
+    --light: '#F2EFEA';
+    --red: '#D7263D';
+    --blue: '#48ACF0';
+    --green: '#57A773';
+    --yellow: '#FFBE0B';
+}
 
 /* Put colors here */
-/* body {
-
-} */
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #57A773;
+}
 
 h1 {
     padding: 3%;
     font-size: 57px;
+    color: #F2EFEA;
 }
 
 h2 {
@@ -26,6 +33,19 @@ h2 {
 
 .btn-secondary {
     margin-bottom: 20%;
+    background-color: #D7263D!important;
+}
+
+.btn-secondary:hover {
+    background-color: #D62727 !important;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #48ACF0 !important;
+}
+
+.btn-primary:hover {
+    background-color: #48A1F0 !important;
 }
 
 .card {
