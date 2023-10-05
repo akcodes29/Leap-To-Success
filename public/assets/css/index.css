@@ -1,0 +1,62 @@
+/* Put Google fonts here and colors in variables */
+:root {
+    --print-font: 'Patrick Hand', 'Indie Flower', cursive;
+    --title-font: 'Titan One', 'Varela Round', sans-serif;
+    --light: '#F2EFEA';
+    --red: '#D7263D';
+    --blue: '#48ACF0';
+    --green: '#57A773';
+    --yellow: '#FFBE0B';
+/* font-family: 'Indie Flower', cursive;
+font-family: 'Lilita One', cursive;
+font-family: 'Patrick Hand', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Titan One', cursive;  */
+}
+
+/* Put colors here */
+body {
+    background-color: #57A773;
+    font-family: var(--print-font);
+}
+
+h1 {
+    padding: 3%;
+    font-size: 57px;
+    color: #F2EFEA;
+    font-family: var(--title-font);
+}
+
+h2 {
+    padding: 3%;
+    margin-top: 10%;
+}
+
+.btn {
+    padding: 4%;
+    margin: 5%;
+}
+
+.btn-secondary {
+    margin-bottom: 20%;
+    background-color: #D7263D!important;
+    width: 75%;
+}
+
+.btn-secondary:hover {
+    background-color: #D62727 !important;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #48ACF0 !important;
+    width: 75%;
+}
+
+.btn-primary:hover {
+    background-color: #48A1F0 !important;
+}
+
+.card {
+    margin-top: 8%;
+    background-color: #F2EFEA;
+}
