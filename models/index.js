@@ -3,6 +3,6 @@ const Student = require('./Student');
 const Teacher = require('./Teacher');
 
 //Relationships
-Parent.hasMany(Student, {
+Teacher.hasMany(Student, {
     //More code..
 })
