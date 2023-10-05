@@ -12,13 +12,29 @@ Parent.init (
             autoIncrement: true,
         },
         firstName: {
-
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         lastName: {
-
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-        child_id: {
+        student_id: {
             //Foreign Key
-        }
-    }
-)
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'student',
+                key: 'id',
+            },
+        },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'parent',
+      }
+);
+
+module.exports = Parent;
