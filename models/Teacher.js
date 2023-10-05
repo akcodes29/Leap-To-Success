@@ -50,13 +50,13 @@ Teacher.init(
     },
     {
         hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+            beforeCreate: async (newTeacherData) => {
+                newTeacherData.password = await bcrypt.hash(newTeacherData.password, 10);
+                return newTeacherData;
             },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
+            beforeUpdate: async (updatedTeacherData) => {
+                updatedTeacherData.password = await bcrypt.hash(updatedTeacherData.password, 10);
+                return updatedTeacherData;
             },
         },
         sequelize,
