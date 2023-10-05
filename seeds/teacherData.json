@@ -1,0 +1,44 @@
+[
+    {
+        "firstName": "Albus",
+        "lastName": "Dumbledore",
+        "email": "headmaster@gmail.com",
+        "password": "sherbertlemon"
+    },
+    {
+        "firstName": "Severus",
+        "lastName": "Snape",
+        "email": "potions@gmail.com",
+        "password": "alwaysandforever"
+    },
+    {
+        "firstName": "Minerva",
+        "lastName": "McGonagall",
+        "email": "transfig@gmail.com",
+        "password": "veraverto"
+    },
+    {
+        "firstName": "Albus",
+        "lastName": "Dumbledore",
+        "email": "defense@gmail.com",
+        "password": "riddikulus"
+    },
+    {
+        "firstName": "Filius",
+        "lastName": "Flitwick",
+        "email": "charms@gmail.com",
+        "password": "wingardiumleviosa"
+    },
+    {
+        "firstName": "Gilderoy",
+        "lastName": "Lockhart",
+        "email": "iamthebest@gmail.com",
+        "password": "magicalme"
+    },
+    {
+        "firstName": "Horace",
+        "lastName": "Slughorn",
+        "email": "princeofpotions@gmail.com",
+        "password": "slugclub"
+    }
+]
