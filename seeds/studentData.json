@@ -1,0 +1,38 @@
+[
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "userName": "HarryP",
+        "password": "chosenOne"
+    },
+    {
+        "firstName": "Ron",
+        "lastName": "Weasley",
+        "userName": "RonW",
+        "password": "bestFriend"
+    },
+    {
+        "firstName": "Hermoine",
+        "lastName": "Grnger",
+        "userName": "HermoineG",
+        "password": "smartest"
+    },
+    {
+        "firstName": "Draco",
+        "lastName": "Malfoy",
+        "userName": "DracoM",
+        "password": "antihero"
+    },
+    {
+        "firstName": "Luna",
+        "lastName": "Lovegood",
+        "userName": "LunaL",
+        "password": "quibbler"
+    },
+    {
+        "firstName": "Cedric",
+        "lastName": "Diggory",
+        "userName": "CedricD",
+        "password": "hufflepuff"
+    }
+]
