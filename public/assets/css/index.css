@@ -1,0 +1,33 @@
+/* Put Google fonts here and colors in variables */
+/* :root {
+    --print-font: 'Quicksand', sans-serif;
+    --cursive: 'Dancing Script', cursive;
+} */
+
+/* Put colors here */
+/* body {
+
+} */
+
+h1 {
+    padding: 3%;
+    font-size: 57px;
+}
+
+h2 {
+    padding: 3%;
+    margin-top: 10%;
+}
+
+.btn {
+    padding: 4%;
+    margin: 5%;
+}
+
+.btn-secondary {
+    margin-bottom: 20%;
+}
+
+.card {
+    margin-top: 8%;
+}
