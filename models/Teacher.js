@@ -39,14 +39,14 @@ Teacher.init(
               len: [8],
             },
         },
-        student_id: {
-            //Foreign Key
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'student',
-                key: 'id',
-            },
-        },
+        // student_id: {
+        //     //Foreign Key
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'student',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         hooks: {

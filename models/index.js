@@ -4,10 +4,10 @@ const Teacher = require('./Teacher');
 const Goals = require('./Goals');
 
 //Relationships
-Teacher.hasMany(Student, {
-    foreignKey: 'teacher_id',
-    onDelete: 'CASCADE'
-});
+// Teacher.hasMany(Student, {
+//     foreignKey: 'teacher_id',
+//     onDelete: 'CASCADE'
+// });
 
 Student.belongsTo(Teacher, {
     foreignKey: 'teacher_id'
