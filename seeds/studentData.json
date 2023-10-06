@@ -3,36 +3,42 @@
         "firstName": "Harry",
         "lastName": "Potter",
         "userName": "HarryP",
-        "password": "chosenOne"
+        "password": "chosenOne",
+        "teacher_id": 1
     },
     {
         "firstName": "Ron",
         "lastName": "Weasley",
         "userName": "RonW",
-        "password": "bestFriend"
+        "password": "bestFriend",
+        "teacher_id": 2
     },
     {
         "firstName": "Hermoine",
         "lastName": "Granger",
         "userName": "HermoineG",
-        "password": "smartest"
+        "password": "smartest",
+        "teacher_id": 2
     },
     {
         "firstName": "Draco",
         "lastName": "Malfoy",
         "userName": "DracoM",
-        "password": "antihero"
+        "password": "antihero",
+        "teacher_id": 3
     },
     {
         "firstName": "Luna",
         "lastName": "Lovegood",
         "userName": "LunaL",
-        "password": "quibbler"
+        "password": "quibbler",
+        "teacher_id": 4
     },
     {
         "firstName": "Cedric",
         "lastName": "Diggory",
         "userName": "CedricD",
-        "password": "hufflepuff"
+        "password": "hufflepuff",
+        "teacher_id": 5
     }
 ]
