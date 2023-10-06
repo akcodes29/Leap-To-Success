@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 
-class Goals extends Model {};
+class Goals extends Model {}
 
 Goals.init(
 {
@@ -40,4 +40,4 @@ Goals.init(
 }
 )
 
-module.exports = { Goals }
+module.exports = Goals;
