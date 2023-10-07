@@ -65,7 +65,29 @@ router.post('/', async (req, res) => {
     }
   });
   
-  
+//Login route v2.0  
+router.post('/login', async (req, res) => {
+  try {
+    const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
+    const teacherPassword = await teacherData.checkPassword(req.body.password);
+
+    if ( !teacherData || !teacherPassword ) {
+      res.status(400).json({ message: 'Incorrect email or password, please try again!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = teacherData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: teacherData, message: "You're logged in!" });
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
   // Login route
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
