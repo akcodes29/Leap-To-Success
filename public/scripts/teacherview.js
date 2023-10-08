@@ -15,6 +15,8 @@ fetch('/api/student', {
         studentDiv.className = 'student';
         studentDiv.innerHTML = `
         <h3>${student.firstName} ${student.lastName}</h3>
+        <p>${student.userName}</p>
+        <p>${student.password}</p>
         `
         studentListDiv.appendChild(studentDiv);
     })

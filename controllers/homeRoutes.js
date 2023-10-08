@@ -34,6 +34,14 @@ router.get('/teacher', async (req, res) => {
     }
 })
 
+router.get('/addnewstudent', async (req, res) => {
+    try {
+        res.sendFile(path.join(__dirname, '../public/addnewstudent.html'));
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 
 
 module.exports = router;
