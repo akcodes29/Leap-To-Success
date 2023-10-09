@@ -28,4 +28,4 @@ Goals.belongsTo(Student, {
     foreignKey: 'student_id'
 })
 
-module.exports = { Parent, Student, Teacher};
+module.exports = { Parent, Student, Teacher, Goals};

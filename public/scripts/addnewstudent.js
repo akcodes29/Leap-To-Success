@@ -13,7 +13,7 @@ const parentEmail = document.getElementById('parentEmail').value;
 const goals = document.getElementById('goals').value;
 
 // Generate a unique username (e.g., first letter of first name + last name)
-const username = firstName.charAt(0).toLowerCase() + lastName.toLowerCase();
+const userName = firstName.charAt(0).toLowerCase() + lastName.toLowerCase();
 
 // Generate a random 6-character password
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -25,7 +25,7 @@ for (let i = 0; i < 6; i++) {
 
  // Create a student object with credentials
  const student = {
-    username: username,
+    username: userName,
     password: password,
     parentEmail: parentEmail,
     goals: goals
@@ -38,9 +38,26 @@ teacherAccount.addStudent(student);
 const credentialsDiv = document.getElementById('credentials');
 credentialsDiv.innerHTML = `
     <h2>Student Credentials</h2>
-    <p><strong>Username:</strong> ${username}</p>
+    <p><strong>Username:</strong> ${userName}</p>
     <p><strong>Password:</strong> ${password}</p>
     <p><strong>Parent Email:</strong> ${parentEmail}</p>
     <p><strong>Number of Goals:</strong> ${goals}</p>
 `;
 });
+
+const saveNewStudent = (credentialsDiv) => {
+    fetch('/api/student', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentialsDiv),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log('Success in saving student:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+};

@@ -21,9 +21,6 @@ fetch('/api/student', {
         studentListDiv.appendChild(studentDiv);
     })
 })
-// <p>${student.email}</p>
-// <p>${student.phone}</p>
-// <p>${student.teacher_id}</p>
 }
 
 start()
