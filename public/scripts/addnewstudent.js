@@ -1,125 +1,27 @@
+const createStudent = async (event) => {
+    event.preventDefault();
 
-const teacherAccount = {
-students: [],
-addStudent: function (student) {
-    this.students.push(student);
-}
-};
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const userName = document.getElementById('userName').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-document.getElementById('generateCredentials').addEventListener('click', function () {
-const firstName = document.getElementById('firstName').value;
-const lastName = document.getElementById('lastName').value;
-const parentEmail = document.getElementById('parentEmail').value;
-const goals = document.getElementById('goals').value;
+    if(firstName && lastName && userName && password) {
 
-// Generate a unique username (e.g., first letter of first name + last name)
-const userName = firstName.charAt(0).toLowerCase() + lastName.toLowerCase();
+        const response = await fetch('/api/student/', {
+            method: 'POST',
+            body: JSON.stringify({ firstName, lastName, userName, password}),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-// Generate a random 6-character password
-const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-let password = '';
-for (let i = 0; i < 6; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    password += characters.charAt(randomIndex);
-}
-
- // Create a student object with credentials
- const student = {
-    username: userName,
-    password: password,
-    parentEmail: parentEmail,
-    goals: goals
- };
-
-   // Save the student to the teacher's account
-teacherAccount.addStudent(student);
-
-// Display the generated credentials
-const credentialsDiv = document.getElementById('credentials');
-credentialsDiv.innerHTML = `
-    <h2>Student Credentials</h2>
-    <p><strong>First Name:</strong> ${firstName}</p>
-    <p><strong>Last Name:</strong> ${lastName}</p>
-    <p><strong>Username:</strong> ${userName}</p>
-    <p><strong>Password:</strong> ${password}</p>
-    <p><strong>Parent Email:</strong> ${parentEmail}</p>
-    <p><strong>Number of Goals:</strong> ${goals}</p>
-`;
-});
-
-
-
-const saveNewStudent = (credentialsDiv) => {
-   const response = fetch('/api/student', {
-        method: 'POST',
-        body: JSON.stringify(credentialsDiv),
-        headers: {
-            'Content-Type': 'application/json',
-        },   
-    });
-    
-    if (response.ok) {
-        document.location.replace('/addnewstudent');
-    } else {
-        alert('Failed to add student');
+        if(response.ok) {
+            document.location.replace('/profile');
+        } else {
+            alert('Failed to create new student'); //TODO: need to replace alert with a modal
+        }
     }
 };
 
-
-
 document
-  .querySelector('#studentForm')
-  .addEventListener('submit', saveNewStudent);
-
-
-
-
-
-// const saveNewStudent = (credentialsDiv) => {
-//     fetch('/api/student', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(credentialsDiv),
-//     })
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log('Success in saving student:', data);
-//     })
-//     .catch((error) => {
-//         console.error('Error:', error);
-//     });
-// };
-
-
-
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log('Success in saving student:', data);
-//     })
-//     .catch((error) => {
-//         console.error('Error:', error);
-//     });
-// };
-
-// const saveNewStudent = async (event) => {
-//     event.preventDefault();
-
-//     if (credentialsDiv) {
-//         const response = await fetch('/api/student', {
-//             method: 'POST',
-//             body: JSON.stringify(credentialsDiv),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-
-//         if (response.ok) {
-//             document.location.replace('/addnewstudent');
-//         } else {
-//             alert('Failed to add student');
-//         }
-//     }
-// }
-
+  .querySelector('.studentForm')
+  .addEventListener('submit', createStudent);

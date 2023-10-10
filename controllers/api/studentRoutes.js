@@ -2,16 +2,15 @@ const router = require('express').Router();
 const Student = require('../../models/Student');
 
 
-
 //CREATE new student
 
 // NEW POST ROUTE
 router.post('/', async (req, res) => {
-  
+  //Create a new student
   try {
     const newStudent = await Student.create({
       ...req.body,
-      teacher_id: req.session.teacher_id,
+      teacher_id: req.session.user_id,
     });
 
     res.status(200).json(newStudent);
@@ -20,16 +19,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-//OLD POST ROUTE
-// router.post('/', async (req, res) => {
-//   // create a new student
-//   try {
-//     const studentData = await Student.create(req.body);
-//     res.status(200).json(studentData);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 //READ
 // Try this for getting all students
