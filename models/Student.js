@@ -35,6 +35,14 @@ Student.init(
               len: [8],
             },
         },
+        // parentEmail: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // goals: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        // },
         teacher_id: {
             //Foreign Key
             type: DataTypes.INTEGER,

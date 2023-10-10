@@ -38,6 +38,8 @@ teacherAccount.addStudent(student);
 const credentialsDiv = document.getElementById('credentials');
 credentialsDiv.innerHTML = `
     <h2>Student Credentials</h2>
+    <p><strong>First Name:</strong> ${firstName}</p>
+    <p><strong>Last Name:</strong> ${lastName}</p>
     <p><strong>Username:</strong> ${userName}</p>
     <p><strong>Password:</strong> ${password}</p>
     <p><strong>Parent Email:</strong> ${parentEmail}</p>
@@ -45,19 +47,79 @@ credentialsDiv.innerHTML = `
 `;
 });
 
+
+
 const saveNewStudent = (credentialsDiv) => {
-    fetch('/api/student', {
+   const response = fetch('/api/student', {
         method: 'POST',
+        body: JSON.stringify(credentialsDiv),
         headers: {
             'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentialsDiv),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log('Success in saving student:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
+        },   
     });
+    
+    if (response.ok) {
+        document.location.replace('/addnewstudent');
+    } else {
+        alert('Failed to add student');
+    }
 };
+
+
+
+document
+  .querySelector('#studentForm')
+  .addEventListener('submit', saveNewStudent);
+
+
+
+
+
+// const saveNewStudent = (credentialsDiv) => {
+//     fetch('/api/student', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(credentialsDiv),
+//     })
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log('Success in saving student:', data);
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// };
+
+
+
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log('Success in saving student:', data);
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// };
+
+// const saveNewStudent = async (event) => {
+//     event.preventDefault();
+
+//     if (credentialsDiv) {
+//         const response = await fetch('/api/student', {
+//             method: 'POST',
+//             body: JSON.stringify(credentialsDiv),
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+
+//         if (response.ok) {
+//             document.location.replace('/addnewstudent');
+//         } else {
+//             alert('Failed to add student');
+//         }
+//     }
+// }
+
