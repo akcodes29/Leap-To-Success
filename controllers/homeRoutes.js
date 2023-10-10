@@ -1,55 +1,79 @@
 const router = require('express').Router();
-const path = require('path');
+const { Student, Teacher } = require('../models');
+const withAuth = require('../utils/auth');
+
 
 router.get('/', async (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, '../public/index.html'));
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
+  try {
+    res.render('homepage');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-
-router.get('/login', async (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, '../public/login.html'));
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
 
 router.get('/signup', async (req, res) => {
+  try {
+    res.render('signup');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+  router.get('/project/:id', async (req, res) => {
     try {
-        res.sendFile(path.join(__dirname, '../public/signup.html'));
+      const teacherData = await Teacher.findByPk(req.params.id, {
+        include: [
+          {
+            model: Teacher,
+            attributes: ['email'],
+          },
+        ],
+      });
+  
+      const teacher = teacherData.get({ plain: true });
+  
+      res.render('project', {
+        ...project,
+        logged_in: req.session.logged_in
+      });
     } catch (err) {
-        res.status(500).json(err);
+      res.status(500).json(err);
     }
-})
+  });
 
-router.get('/teacher', async (req, res) => {
+
+// Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async(req, res) => {
     try {
-        res.sendFile(path.join(__dirname, '../public/teacherview.html'));
+      // Find the logged in user based on the session ID
+      const teacherData = await Teacher.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        // include: [{ model: Teacher }],
+      });
+  
+      const teacher = teacherData.get({ plain: true });
+  
+      res.render('teacherview', {
+        ...teacher,
+        logged_in: true
+      });
     } catch (err) {
-        res.status(500).json(err);
+      res.status(500).json(err);
     }
-})
+  });
 
-router.get('/addnewstudent', async (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, '../public/addnewstudent.html'));
-    } catch (err) {
-        res.status(500).json(err);
+
+  router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/profile');
+      return;
     }
-})
+  
+    res.render('login');
+  });
 
-router.get('/student', async (req, res) => {
-    try {
-        res.sendFile(path.join(__dirname, '../public/studentview.html'));
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
-
-
-
+  
 module.exports = router;

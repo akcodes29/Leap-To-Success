@@ -18,11 +18,11 @@ Teacher.init(
         },
         firstName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         lastName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         email: {
             type: DataTypes.STRING,
@@ -39,14 +39,6 @@ Teacher.init(
               len: [8],
             },
         },
-        // student_id: {
-        //     //Foreign Key
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'student',
-        //         key: 'id',
-        //     },
-        // },
     },
     {
         hooks: {

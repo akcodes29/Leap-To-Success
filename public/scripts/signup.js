@@ -1,31 +1,25 @@
-require("dotenv").config();
-// Packages needed for this application
-const mysql = require('mysql2');
-const connection = require("../../config/connection");
-const button = document.getElementById("btn");
-
-// function runner() {
-//     console.log(`I am running`)
-//     fetch('/api/teacher', {
-//         method: 'POST',
-//         body: new FormData(document.querySelector('form'))
-//     })
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-// };
-
-// runner()
-
-button.addEventListener("click", function () {
-    console.log('I was clicked')
-})
-
-button.addEventListener('click', function (event) {
+const signUp = async (event) => {
     event.preventDefault();
-    fetch('/api/teacher', {
+
+    const firstName = document.querySelector('#firstName-signup').value.trim();
+    const lastName = document.querySelector('#lastName-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
+  
+    if (firstName && lastName && email && password) {
+      
+      const response = await fetch('/api/teacher/', {
         method: 'POST',
-        body: new FormData(document.querySelector('form'))
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-})
+        body: JSON.stringify({ firstName, lastName, email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to log in'); //TODO: need to replace alert with a modal
+      }
+    }
+  };
+
+document.querySelector('.signup-form').addEventListener('submit', signUp);

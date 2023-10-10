@@ -1,9 +1,8 @@
-const login = async (event) => {
-    
+var loginFormHandler = async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('#email').value.trim();
-    const password = document.querySelector('#password').value.trim();
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
   
     if (email && password) {
       
@@ -14,12 +13,14 @@ const login = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/profile');
       } else {
         alert('Failed to log in'); //TODO: need to replace alert with a modal
       }
     }
   };
+
   
-  document.querySelector('#login-btn').addEventListener('submit', login);
+  
+  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   

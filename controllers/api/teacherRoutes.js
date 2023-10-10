@@ -1,20 +1,69 @@
 const router = require('express').Router();
-const Teacher = require('../../models/Teacher');
+const { Teacher } = require('../../models');
 
 
-//CREATE
+//CREATE (from the sign-up page)
 router.post('/', async (req, res) => {
     // create a new teacher
     try {
       const teacherData = await Teacher.create(req.body);
-      res.status(200).json(teacherData);
+
+      req.session.save(() => {
+        req.session.user_id = teacherData.id;
+        req.session.logged_in = true;
+
+        res.status(200).json(teacherData);
+      });
     } catch (err) {
       res.status(400).json(err);
     }
   });
+
+  //login route v3.0 (from the log-in page)
+router.post('/login', async (req, res) => {
+  try {
+    const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
+
+    if (!teacherData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const teacherPassword = await teacherData.checkPassword(req.body.password);
+
+    if (!teacherPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = teacherData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: teacherData, message: 'You are now logged in!' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
   
   //READ
-  // Try this for getting all teachers
+  // Get all teachers, used for development purposes
   router.get('/', (req, res) => {
       // Get all teachers from the teacher table
       Teacher.findAll().then((teacherData) => {
@@ -64,42 +113,6 @@ router.post('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
-//Login route v2.0  
-router.post('/login', async (req, res) => {
-  try {
-    const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
-    const teacherPassword = await teacherData.checkPassword(req.body.password);
 
-    if ( !teacherData || !teacherPassword ) {
-      res.status(400).json({ message: 'Incorrect email or password, please try again!' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = teacherData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: teacherData, message: "You're logged in!" });
-    });
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-  // Login route
-  router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-    res.render('login'); 
-  });
     
-  module.exports = router;
-
-
-
-
-
+module.exports = router;
