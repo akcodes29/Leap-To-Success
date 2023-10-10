@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Student, Teacher } = require('../models');
+const { Student, Teacher, Goals } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -64,6 +64,30 @@ router.get('/profile', withAuth, async(req, res) => {
     }
   });
 
+  // Use withAuth middleware to prevent access to route - STUDENT VIEW
+router.get('/profile', withAuth, async(req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const studentData = await Student.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: Goals,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const student = studentData.get({ plain: true });
+
+    res.render('studenthomepage', {
+      ...student,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
