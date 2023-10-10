@@ -21,12 +21,12 @@
     <header class="container">
         <div class="row">
             <h1>Lily Pad Tracker</h1>
+            {{#if logged_in}}
+            <button id="logout" class="btn-no-style">Logout</button>
+            {{else}}
+            {{!-- Don't need anything here --}}
+            {{/if}}
         </div>
-        {{#if logged_in}}
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        {{!-- Don't need anything here --}}
-        {{/if}}
     </header>
 
     <main class="container container-fluid mt-5">

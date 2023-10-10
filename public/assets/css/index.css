@@ -112,3 +112,10 @@ h2 {
             #e2373f);
     box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }
+
+#logout {
+    max-width: 20%;
+    font-size: xx-large;
+    margin-left: 70%;
+    margin-top: 0%
+}
