@@ -44,7 +44,7 @@ router.get('/signup', async (req, res) => {
   });
 
 
-// Use withAuth middleware to prevent access to route
+// Use withAuth middleware to prevent access to route - TEACHER VIEW
 router.get('/profile', withAuth, async(req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -74,6 +74,15 @@ router.get('/profile', withAuth, async(req, res) => {
   
     res.render('login');
   });
+
+  router.get('/addnewstudent', async (req, res) => {
+    try {
+      res.render('addnewstudent');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+  );
 
   
 module.exports = router;

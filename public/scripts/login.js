@@ -15,7 +15,7 @@ var loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to log in'); //TODO: need to replace alert with a modal
+        alert('Failed to log in THIS ERROR'); //TODO: need to replace alert with a modal
       }
     }
   };
