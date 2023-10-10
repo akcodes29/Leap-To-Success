@@ -29,3 +29,18 @@ start()
 
 
 
+const renderAddNewStudent = async () => {
+    const response = await fetch('/addnewstudent', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (response.ok) {
+        document.location.replace('/addnewstudent');
+    }
+
+};
+
+document.querySelector('.addnewstudent').addEventListener('submit', renderAddNewStudent);
