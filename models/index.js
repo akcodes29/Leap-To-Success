@@ -8,6 +8,12 @@ Student.belongsTo(Teacher, {
     foreignKey: 'teacher_id'
 });
 
+//Teacher hasMany Students relationship needs to be added
+Teacher.hasMany(Student, {
+    foreignKey: 'teacher_id',
+    onDelete: 'CASCADE',
+});
+
 
 //Goals table relationships -- work in progress 
 Student.hasMany(Goals, {
