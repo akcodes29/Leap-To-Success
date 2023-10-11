@@ -22,11 +22,24 @@ router.post('/', async (req, res) => {
 
 //READ
 // Try this for getting all students
-router.get('/', (req, res) => {
-    // Get all students from the student table
-    Student.findAll().then((studentData) => {
-      res.json(studentData);
-    });
+// router.get('/', (req, res) => {
+//     // Get all students from the student table
+//     Student.findAll().then((studentData) => {
+//       res.json(studentData);
+//     });
+//  });
+
+ // Try this for getting all students by teacher id
+
+ router.get('/', (req, res) => { 
+  Student.findAll({
+    where: {
+      teacher_id: req.session.user_id,
+    },
+  }).then((studentData) => {
+    res.json(studentData);
+  });
+
  });
 
 //route to get students by id 
