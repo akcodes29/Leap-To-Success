@@ -1,0 +1,22 @@
+/* Put Google fonts here and colors in variables */
+:root {
+    --print-font: 'Patrick Hand', 'Indie Flower', cursive;
+    --title-font: 'Titan One', 'Varela Round', sans-serif;
+    --light: '#F2EFEA';
+    --red: '#D7263D';
+    --blue: '#48ACF0';
+    --green: '#57A773';
+    --yellow: '#FFBE0B';
+    /* font-family: 'Indie Flower', cursive;
+font-family: 'Lilita One', cursive;
+font-family: 'Patrick Hand', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Titan One', cursive;  */
+}
+
+/* Put colors here */
+body {
+    background-image: url("../images/homepage img.png");
+    background-position: 0% 75%;
+    font-family: var(--print-font);
+}
