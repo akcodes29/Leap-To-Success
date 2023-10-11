@@ -4,15 +4,15 @@ const smallLilyPad = document.querySelector('#small-lily');
 
 // Arrays of image src codes to cycle through
 const plainLilyPads = [
-    "../public/assets/images/lilypad G1.png",
-    "../public/assets/images/lilypad G2.png",
-    "../public/assets/images/lilypad G3.png"
+    "assets/images/lilypads/lilypad G1.png",
+    "assets/images/lilypads/lilypad G2.png",
+    "assets/images/lilypads/lilypad G3.png"
 ];
 
 const redLilyPads = [
-    "../public/assets/images/lilypad R1.png",
-    "../public/assets/images/lilypad R2.png",
-    "../public/assets/images/lilypad R3.png"
+    "assets/images/lilypads/lilypad R1.png",
+    "assets/images/lilypads/lilypad R2.png",
+    "assets/images/lilypads/lilypad R3.png"
 ];
 
 // Function to handle change of large lily pad 
@@ -44,5 +44,5 @@ const sadFace = () => {
 
 
 // Event listeners 
-document.querySelector('#happy-face').addEventListener('submit', happyFace);
-document.querySelector('#sad-face').addEventListener('submit', sadFace);
+document.getElementById('happy-face').addEventListener('click', happyFace);
+document.getElementById('sad-face').addEventListener('click', sadFace);

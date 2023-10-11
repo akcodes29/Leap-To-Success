@@ -1,21 +1,22 @@
+<link rel="stylesheet" href="./assets/css/studentDash.css">
 <div class="container text-center mb-5">
     <div id="mainImgs" class="row align-items-center mt-5 mb-3">
         <div class="col">
             <!-- Add event listeners to faces -->
-            <button id="sad-face" value="false"><img class="mImg" src="../public/assets/images/sad frog.png" alt="frowny face"></button>
+            <button id="sad-face" value="no"><img class="mImg" src="assets/images/icons/sad frog.png" alt="frowny face"></button>
         </div>
         <div class="col">
-            <img id="big-lily" class="lImg" src="../public/assets/images/lilypad G1.png" alt="lilypad">
-            <div id="goal" class="centered">Did not kick other students during Recess</div>
+            {{!-- <img id="big-lily" class="lImg" src="assets/images/lilypads/lilypad G1.png" alt="lilypad"> --}}
+            <div id="goal" class="text-center"><br><br>Did not kick other students during Recess</div>
         </div>
         <div class="col">
-            <button id="happy-face" value="true"><img class="mImg" src="../public/assets/images/happy frog.png" alt="smiley face"></button>
+            <button id="happy-face" value="yes"><img class="mImg" src="assets/images/icons/happy frog.png" alt="smiley face"></button>
         </div>
     </div>
 
     <div id="previous" class="container text-center row align-items-center pt-5 mx-3">
-        <img id="small-lily "class="sImg col" src="../public/assets/images/lilypad R1.png" alt="previous lilypad">
+        <img id="small-lily "class="sImg col" src="assets/images/lilypads/lilypad R1.png" alt="previous lilypad">
     </div>
 </div>
 
-<script src="./scripts/studentDash.js"></script>
+<script src="scripts/studentDash.js"></script>
