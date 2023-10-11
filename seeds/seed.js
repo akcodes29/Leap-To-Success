@@ -7,8 +7,8 @@ const studentData = require('./studentData.json');
 const teacherData = require('./teacherData.json');
 
 const seedDatabase = async() => {
-    // await sequelize.sync({ force: true});
-
+    await sequelize.sync({ force: true});
+    
     const teachers = await Teacher.bulkCreate(teacherData, {
         individualHooks: true,
         returning: true,
