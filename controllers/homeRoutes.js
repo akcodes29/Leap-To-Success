@@ -21,6 +21,7 @@ router.get('/signup', async (req, res) => {
 });
 
 
+// CHECK THIS ROUTE !! 
   router.get('/project/:id', async (req, res) => {
     try {
       const teacherData = await Teacher.findByPk(req.params.id, {
@@ -50,7 +51,7 @@ router.get('/profile', withAuth, async(req, res) => {
       // Find the logged in user based on the session ID
       const teacherData = await Teacher.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        // include: [{ model: Teacher }],
+        // include: [{ model: Student }],
       });
   
       const teacher = teacherData.get({ plain: true });
@@ -89,6 +90,15 @@ router.get('/profile', withAuth, async(req, res) => {
   }
 });
 
+// GET/studentlogin
+router.get('/studentlogin', async (req, res) => {
+  try {
+    res.render('studentlogin');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+ });
+
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
@@ -99,6 +109,8 @@ router.get('/profile', withAuth, async(req, res) => {
     res.render('login');
   });
 
+
+  //Add new student route
   router.get('/addnewstudent', async (req, res) => {
     try {
       res.render('addnewstudent');

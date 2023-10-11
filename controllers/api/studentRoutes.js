@@ -20,6 +20,41 @@ router.post('/', async (req, res) => {
 });
 
 
+//login route for students
+
+router.post('/login', async (req, res) => {
+  try {
+    const studentData = await Student.findOne({ where: { userName: req.body.userName } });
+
+    if (!studentData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const studentPassword = await studentData.checkPassword(req.body.password);
+
+    if (!studentPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = studentData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: studentData, message: 'You are now logged in!' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 //READ
 // Try this for getting all students
 router.get('/', (req, res) => {

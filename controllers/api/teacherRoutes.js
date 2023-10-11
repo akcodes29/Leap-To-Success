@@ -81,7 +81,7 @@ router.post('/logout', (req, res) => {
       });
   
       if (!myTeacher){
-        res.status(404).json({message: "No teacher with that ID was found :-("});
+        res.status(404).json({message: "No teacher with that ID was found"});
         return;
       }
   
