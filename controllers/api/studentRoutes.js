@@ -5,15 +5,33 @@ const Student = require('../../models/Student');
 //CREATE new student
 
 // NEW POST ROUTE
+// router.post('/', async (req, res) => {
+//   //Create a new student
+//   try {
+//     const newStudent = await Student.create({
+//       ...req.body,
+//       teacher_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newStudent);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
 router.post('/', async (req, res) => {
-  //Create a new student
   try {
     const newStudent = await Student.create({
       ...req.body,
       teacher_id: req.session.user_id,
     });
 
-    res.status(200).json(newStudent);
+    req.session.save(() => {
+      
+      req.session.logged_in = true;
+
+      res.status(200).json(newStudent);
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -30,7 +48,6 @@ router.post('/', async (req, res) => {
 //  });
 
  // Try this for getting all students by teacher id
-
  router.get('/', (req, res) => { 
   Student.findAll({
     where: {

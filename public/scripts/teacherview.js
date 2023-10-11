@@ -26,9 +26,6 @@ fetch('/api/student', {
 start()
 
 
-
-
-
 const renderAddNewStudent = async () => {
     const response = await fetch('/addnewstudent', {
         method: 'GET',
