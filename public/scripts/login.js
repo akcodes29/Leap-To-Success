@@ -38,5 +38,10 @@ var loginFormHandler = async (event) => {
 
   
   
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  // document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+
+ //Event listener v2 - removes console error
+  $(document).on('submit', '.login-form', function (event) {
+    loginFormHandler(event)
+  });
   
