@@ -18,3 +18,15 @@ form, #login-btn, #sign-up-btn{
 body {
     background-image: url("../images/path_bg_img.png");
 }
+
+/* Increase size of checkbox */
+.checkbox-lg .custom-control-label {
+    padding-top: 23px;
+    padding-left: 10px;
+    font-size: xx-large;
+} 
+
+input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+  }
