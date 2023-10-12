@@ -35,6 +35,11 @@ Student.init(
               len: [8],
             },
         },
+        dailyGoal: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            
+        },
         teacher_id: {
             //Foreign Key
             type: DataTypes.INTEGER,
@@ -43,14 +48,7 @@ Student.init(
                 key: 'id',
             },
         },
-        goal_id: {
-            //Foreign Key
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'goal',
-                key: 'id',
-            },
-        },
+        
     },
     {
         sequelize,
