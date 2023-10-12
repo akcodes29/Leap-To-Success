@@ -21,6 +21,7 @@ router.get('/signup', async (req, res) => {
 });
 
 
+//WHAT ROUTE IS THIS??
   router.get('/project/:id', async (req, res) => {
     try {
       const teacherData = await Teacher.findByPk(req.params.id, {
@@ -48,11 +49,13 @@ router.get('/signup', async (req, res) => {
 router.get('/profile', withAuth, async(req, res) => {
     try {
       // Find the logged in user based on the session ID
+      console.log(req.session)
+      console.log(req.session.user_id)
       const teacherData = await Teacher.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
         // include: [{ model: Teacher }],
       });
-  
+  console.log(teacherData)
       const teacher = teacherData.get({ plain: true });
   
       res.render('teacherview', {
@@ -60,12 +63,13 @@ router.get('/profile', withAuth, async(req, res) => {
         logged_in: true
       });
     } catch (err) {
+      console.log("Teacher", err)
       res.status(500).json(err);
     }
   });
 
-  // Use withAuth middleware to prevent access to route - STUDENT VIEW
-router.get('/profile', withAuth, async(req, res) => {
+//   Use withAuth middleware to prevent access to route - STUDENT VIEW
+router.get('/studentprofile', withAuth, async(req, res) => {
   try {
     // Find the logged in user based on the session ID
     const studentData = await Student.findByPk(req.session.user_id, {
@@ -85,6 +89,7 @@ router.get('/profile', withAuth, async(req, res) => {
       logged_in: true
     });
   } catch (err) {
+    console.log("Student", err)
     res.status(500).json(err);
   }
 });

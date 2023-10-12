@@ -5,15 +5,65 @@ const Student = require('../../models/Student');
 //CREATE new student
 
 // NEW POST ROUTE
+// router.post('/', async (req, res) => {
+//   //Create a new student
+//   try {
+//     const newStudent = await Student.create({
+//       ...req.body,
+//       teacher_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newStudent);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
 router.post('/', async (req, res) => {
-  //Create a new student
   try {
     const newStudent = await Student.create({
       ...req.body,
       teacher_id: req.session.user_id,
     });
 
-    res.status(200).json(newStudent);
+    req.session.save(() => {
+      
+      req.session.logged_in = true;
+
+      res.status(200).json(newStudent);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/login', async (req, res) => {
+  try {
+    const studentData = await Student.findOne({ where: { userName: req.body.email } });
+ console.log('login', studentData)
+    if (!studentData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const studentPassword = await studentData.checkPassword(req.body.password);
+
+    if (!studentPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = studentData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: studentData, message: 'You are now logged in!' });
+    });
+
   } catch (err) {
     res.status(400).json(err);
   }
@@ -22,11 +72,23 @@ router.post('/', async (req, res) => {
 
 //READ
 // Try this for getting all students
-router.get('/', (req, res) => {
-    // Get all students from the student table
-    Student.findAll().then((studentData) => {
-      res.json(studentData);
-    });
+// router.get('/', (req, res) => {
+//     // Get all students from the student table
+//     Student.findAll().then((studentData) => {
+//       res.json(studentData);
+//     });
+//  });
+
+ // Try this for getting all students by teacher id
+ router.get('/', (req, res) => { 
+  Student.findAll({
+    where: {
+      teacher_id: req.session.user_id,
+    },
+  }).then((studentData) => {
+    res.json(studentData);
+  });
+
  });
 
 //route to get students by id 

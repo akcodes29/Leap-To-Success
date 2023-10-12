@@ -8,6 +8,10 @@ Student.belongsTo(Teacher, {
     foreignKey: 'teacher_id'
 });
 
+Student.hasOne(Teacher,{
+    foreignKey: 'teacher_id'
+});
+
 //Teacher hasMany Students relationship needs to be added
 Teacher.hasMany(Student, {
     foreignKey: 'teacher_id',

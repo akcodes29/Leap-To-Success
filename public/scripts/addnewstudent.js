@@ -5,10 +5,10 @@ const createStudent = async (event) => {
     const lastName = document.getElementById('lastName').value.trim();
     const userName = document.getElementById('userName').value.trim();
     const password = document.getElementById('password').value.trim();
-
+    // const isStudent = false;
     if(firstName && lastName && userName && password) {
-
-        const response = await fetch('/api/student/', {
+// const endpoint = isStudent? '/api/student' : '/api/teacher/createStudent';
+        const response = await fetch('/api/student', {
             method: 'POST',
             body: JSON.stringify({ firstName, lastName, userName, password}),
             headers: { 'Content-Type': 'application/json' },

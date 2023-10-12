@@ -12,4 +12,9 @@ const logout = async () => {
     }
   };
   
-  document.querySelector('#logout').addEventListener('click', logout);
+  // document.querySelector('#logout').addEventListener('click', logout);
+
+ //Event listener v2 - removes console error
+  $(document).on('click', '#logout',function(){
+    logout()
+});

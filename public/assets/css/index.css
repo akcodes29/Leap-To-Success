@@ -29,7 +29,7 @@ h1 {
 
 h2 {
     padding: 3%;
-    margin-top: 10%;
+    margin-top: 2%;
     font-size: 60px;
 }
 
@@ -120,25 +120,45 @@ h2 {
     margin-top: 0%
 }
 
-.lImg{
-    max-width: 100%;
+/* Tablet View */
+@media screen and (max-width: 1391px) {
+    #hide {
+        display: none;
+    }
+    .card {
+        width: fit-content;
+        margin-left: 45%;
+    }
 }
 
-.mImg{
-    max-width: 45%;
-}
+/* Mobile View */
+@media screen and (max-width: 759px) {
+    h1 {
+        padding: 1%;
+        font-size: 55px;
+    }
 
-.sImg{
-    max-width: 20%;
-    margin-left: 38%;
-}
+    h2 {
+        padding: 1%;
+        margin-top: 10%;
+        font-size: 35px;
+    }
 
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: medium;
-    /* In Progress */
-    /* background-image: url("./lilypad G1.png"); */
+    #hide {
+        display: none;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .bn632-hover {
+        width: 160px;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px;
+        height: 55px;
+        text-align: center;
+    }
+
 }

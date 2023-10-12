@@ -1,0 +1,20 @@
+/* This CSS file handles styling tweaks for login and sign-up pages specifically */
+
+/* Hides site title */
+h1 {
+    display: none;
+}
+/* Changes Login message color */
+h2{
+    color:white;
+}
+
+/* Changes form font size */
+form, #login-btn, #sign-up-btn{
+    font-size: 165%;
+}
+
+/* Changes BG image */
+body {
+    background-image: url("../images/path_bg_img.png");
+}

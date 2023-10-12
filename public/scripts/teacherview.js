@@ -26,9 +26,6 @@ fetch('/api/student', {
 start()
 
 
-
-
-
 const renderAddNewStudent = async () => {
     const response = await fetch('/addnewstudent', {
         method: 'GET',
@@ -43,4 +40,9 @@ const renderAddNewStudent = async () => {
 
 };
 
-document.querySelector('.addnewstudent').addEventListener('submit', renderAddNewStudent);
+// document.querySelector('.addnewstudent').addEventListener('submit', renderAddNewStudent);
+
+ //Event listener v2 - removes console error
+$(document).on('submit', '.addnewstudent', function () {
+    renderAddNewStudent();
+});
