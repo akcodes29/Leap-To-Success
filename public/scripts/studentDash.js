@@ -1,5 +1,5 @@
 // Selects necessary elements 
-const bigLilyPad = document.querySelector('#goal');
+const bigLilyPad = document.querySelector('#goal-2');
 const smallLilyPad = document.querySelector('.sImg');
 
 let counter = 1;
@@ -7,12 +7,15 @@ let counter = 1;
 function leapFrogger() {
     if(counter == 0) {
         bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G1.png')";
+        goalDiv.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";
         counter++;
     } else if ( counter == 1) {
-        bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";;
+        bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";
+        goalDiv.style.backgroundImage = "url('assets/images/lilypads/lilypad G3.png')";
         counter++;
     } else if (counter == 2) {
         bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G3.png')";
+        goalDiv.style.backgroundImage = "url('assets/images/lilypads/lilypad G1.png')";
         counter = 0;
     };
 };
