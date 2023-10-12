@@ -8,23 +8,6 @@
 
   <div id="studentList"></div>
 
-      {{#if students.length}}
-        <div class="col-md-6 project-list">
-          <h3>Current Students:</h3>
-
-          {{#each students as |student|}}
-          <div class="row mb-2">
-            <div class="col-md-8">
-              <h4><a href="/student/{{student.id}}">{{student.userName}}</a></h4>
-            </div>
-            <div class="col-md-4">
-              <button class="btn btn-sm btn-danger" data-id="{{student.id}}">DELETE</button>
-            </div>
-          </div>
-          {{/each}}
-        </div>
-      {{/if}}
-    
     
     <!-- button to add new student, directs user to add new student page -->
 <form class="addnewstudent">
