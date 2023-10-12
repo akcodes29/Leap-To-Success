@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Harry will not use Expelliarmus on his classmates. ",
+        "teacher_id": "1",
+        "student_id": "1"
+    },
+    {
+        "name": "Harry will not use Potions on his classmates. ",
+        "teacher_id": "1",
+        "student_id": "1"
+    },
+    {
+        "name": "Harry will not sneak out to Hagrid's cottage. ",
+        "teacher_id": "1",
+        "student_id": "1"
+    },
+    {
+        "name": "Ron will not miss his classes. ",
+        "teacher_id": "2",
+        "student_id": "2"
+    },
+    {
+        "name": "Hermione will not use the Time Turner. ",
+        "teacher_id": "2",
+        "student_id": "3"
+    },
+    {
+        "name": "Draco will not threaten to tell his father about this. ",
+        "teacher_id": "3",
+        "student_id": "4"
+    },
+    {
+        "name": "Luna will not talk about the nargles. ",
+        "teacher_id": "4",
+        "student_id": "5"
+    },
+    {
+        "name": "Cedric will not make fun of Harry Potter. ",
+        "teacher_id": "5",
+        "student_id": "6"
+    }
+]
