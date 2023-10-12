@@ -30,3 +30,13 @@ body {
     max-width: 20%;
     margin-left: 38%;
 }
+
+/* Hides title  */
+h1 {
+    display: none;
+}
+
+#logout {
+    margin-left: 85%;
+    margin-top: 5%;
+}

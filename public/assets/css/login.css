@@ -1,0 +1,13 @@
+h1 {
+    display: none;
+}
+h2{
+    color:white;
+}
+form, #login-btn{
+    font-size: 165%;
+}
+
+body {
+    background-image: url("../images/path_bg_img.png");
+}
