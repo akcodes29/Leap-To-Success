@@ -5,7 +5,7 @@ const smallLilyPad = document.querySelector('.sImg');
 let counter = 1;
 // Function to handle change of large lily pad 
 function leapFrogger() {
-    if (counter == 0) {
+    if(counter == 0) {
         bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G1.png')";
         goalDiv.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";
         counter++;
