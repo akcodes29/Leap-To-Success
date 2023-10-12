@@ -1,35 +1,20 @@
 // Selects necessary elements 
-const bigLilyPad = document.querySelector('#big-lily');
+const bigLilyPad = document.querySelector('#goal');
 const smallLilyPad = document.querySelector('#small-lily');
 
-// Arrays of image src codes to cycle through
-const plainLilyPads = [
-    "assets/images/lilypads/lilypad G1.png",
-    "assets/images/lilypads/lilypad G2.png",
-    "assets/images/lilypads/lilypad G3.png"
-];
-
-const redLilyPads = [
-    "assets/images/lilypads/lilypad R1.png",
-    "assets/images/lilypads/lilypad R2.png",
-    "assets/images/lilypads/lilypad R3.png"
-];
-
+let counter = 1;
 // Function to handle change of large lily pad 
-const leapFrogger = () => {
-    
-    let counter = 1;
-
-    if(counter === 0) {
-        bigLilyPad.src = `${plainLilyPads[0]}`;
+function leapFrogger() {
+    if(counter == 0) {
+        bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G1.png')";
         counter++;
-    } else if ( counter === 1) {
-        bigLilyPad.src = `${plainLilyPads[1]}`;
+    } else if ( counter == 1) {
+        bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";;
         counter++;
-    } else if (counter === 2) {
-        bigLilyPad.src = `${plainLilyPads[2]}`;
+    } else if (counter == 2) {
+        bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G3.png')";
         counter = 0;
-    }
+    };
 };
 
 const happyFace = () => {
@@ -42,7 +27,13 @@ const sadFace = () => {
     leapFrogger();
 };
 
-
 // Event listeners 
-document.getElementById('happy-face').addEventListener('click', happyFace);
-document.getElementById('sad-face').addEventListener('click', sadFace);
+$(document).on('click', '#happy-face',function(event){
+    event.preventDefault();
+    leapFrogger();
+});
+
+$(document).on('click', '#sad-face',function(event){
+    event.preventDefault();
+    leapFrogger();
+});
