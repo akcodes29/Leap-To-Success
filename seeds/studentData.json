@@ -4,6 +4,7 @@
         "lastName": "Potter",
         "userName": "HarryP",
         "password": "chosenOne",
+        "dailyGoal": 5,
         "teacher_id": 1
     },
     {
@@ -11,6 +12,7 @@
         "lastName": "Weasley",
         "userName": "RonW",
         "password": "bestFriend",
+        "dailyGoal": 4,
         "teacher_id": 2
     },
     {
@@ -18,6 +20,7 @@
         "lastName": "Granger",
         "userName": "HermoineG",
         "password": "smartest",
+        "dailyGoal": 6,
         "teacher_id": 2
     },
     {
@@ -25,6 +28,7 @@
         "lastName": "Malfoy",
         "userName": "DracoM",
         "password": "antihero",
+        "dailyGoal": 6,
         "teacher_id": 3
     },
     {
@@ -32,6 +36,7 @@
         "lastName": "Lovegood",
         "userName": "LunaL",
         "password": "quibbler",
+        "dailyGoal": 5,
         "teacher_id": 4
     },
     {
@@ -39,6 +44,7 @@
         "lastName": "Diggory",
         "userName": "CedricD",
         "password": "hufflepuff",
+        "dailyGoal": 4,
         "teacher_id": 5
     }
 ]
