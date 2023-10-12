@@ -16,6 +16,7 @@ fetch('/api/student', {
         <h3>${student.firstName} ${student.lastName}</h3>
         <p>${student.userName}</p>
         <p>${student.password}</p>
+        <p>${student.goals}</p>
         `
         studentListDiv.appendChild(studentDiv);
     })
