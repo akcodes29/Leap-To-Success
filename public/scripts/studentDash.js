@@ -49,3 +49,27 @@ $(document).on('click', '#sad-face',function(event){
     leapFrogger();
     sadFace();
 });
+
+
+
+//Show # goal on student page 
+const goalDiv = document.getElementById('goal');
+  function start(){
+    fetch('/api/student', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+  }).then((response) => response.json()).then((data) => {
+    console.log(data)
+    data.forEach((student) => {
+        const studentGoalDiv = document.createElement('div');
+        studentGoalDiv.className = 'student';
+        studentGoalDiv.innerHTML = `
+        <p>Daily Goal: ${student.dailyGoal}</p>
+        `
+        goalDiv.appendChild(studentGoalDiv);
+    })
+})
+}
+start()

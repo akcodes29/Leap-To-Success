@@ -7,7 +7,7 @@ const createStudent = async (event) => {
     const password = document.getElementById('password').value.trim();
     const dailyGoal = document.getElementById('goals').value.trim();
     // const isStudent = false;
-    if(firstName && lastName && userName && password) {
+    if(firstName && lastName && userName && password && dailyGoal) {
 // const endpoint = isStudent? '/api/student' : '/api/teacher/createStudent';
         const response = await fetch('/api/student', {
             method: 'POST',
