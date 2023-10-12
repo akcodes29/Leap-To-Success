@@ -1,12 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const bcrypt = require('bcrypt');
+
 
 class Student extends Model {
-    // Needs to be fixed to not use bcrypt
-    // checkPassword(loginAttempt) {
-    //     return bcrypt.compareSync(loginAttempt, this.password);
-    // }
+    checkPassword(loginAttempt) {
+        return (loginAttempt, this.password);
+    }
 }
 
 Student.init(
@@ -54,16 +53,6 @@ Student.init(
         },
     },
     {
-        // hooks: {
-        //     beforeCreate: async (newStudentData) => {
-        //         newStudentData.password = await bcrypt.hash(newStudentData.password, 10);
-        //       return newStudentData;
-        //     },
-        //     beforeUpdate: async (updatedStudentData) => {
-        //         updatedStudentData.password = await bcrypt.hash(updatedStudentData.password, 10);
-        //       return updatedStudentData;
-        //     },
-        // },
         sequelize,
         timestamps: false,
         freezeTableName: true,
