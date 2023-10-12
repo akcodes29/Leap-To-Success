@@ -1,22 +1,27 @@
-// CRUD
+const router = require('express').Router();
+const Goal = require('../../models/Goals');
 
-const { Goals } = require("../../models");
 
-// Create
-
-// Read
- // Try this for getting all goals by student id
- router.get('/', (req, res) => { 
-    Goals.findAll({
-      where: {
-        student_id: req.session.user_id,
-      },
-    }).then((goalData) => {
-      res.json(goalDataData);
-    });
+  //route to get goal by student id 
+  router.get('/:id', async (req, res) => {
+    try {
+      const myGoals = await Goal.findAll({
+        where: {
+          student_id: req.params.id,
+        },
+      });
   
-   });
+      if (!myGoals){
+        res.status(404).json({message: "No goals were found for that student :-("});
+        return;
+      }
+  
+      res.status(200).json(myGoals);
+  
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
-// Update
-
-// Delete
+  module.exports = router;
