@@ -1,0 +1,45 @@
+/* Adjusts overall font size  */
+*{
+    font-size: 115%;
+}
+
+/* Adds background image to page */
+body {
+    background-image: url("../images/homepage img.png");
+    background-color: #48ACF0;
+    background-position: 0% 75%;
+    background-repeat: repeat;
+}
+
+/* Hides title  */
+h1 {
+    display: none;
+}
+
+/* Edits "Hello Prof" title color */
+h2{
+    color:white;
+}
+
+/* Edits position of both buttons  */
+#logout, #addnewstudent {
+    margin-left: 80%;
+    margin-top: 5%;
+}
+
+/* Changes font size of new student button */
+#addnewstudent {
+    font-size: 100%;
+}
+
+/* Edits position of student div */
+.student{
+    text-align: right;
+    margin-right: 7%;
+}
+
+/* Edits color of student name */
+h3{
+    color:white;
+    font-size: 125%;
+}
