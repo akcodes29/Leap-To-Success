@@ -17,6 +17,7 @@ form, #login-btn, #sign-up-btn{
 /* Changes BG image */
 body {
     background-image: url("../images/path_bg_img.png");
+    background-color: #48ACF0;
 }
 
 /* Increase size of checkbox */

@@ -7,16 +7,11 @@
     --blue: '#48ACF0';
     --green: '#57A773';
     --yellow: '#FFBE0B';
-    /* font-family: 'Indie Flower', cursive;
-font-family: 'Lilita One', cursive;
-font-family: 'Patrick Hand', cursive;
-font-family: 'Shadows Into Light', cursive;
-font-family: 'Titan One', cursive;  */
 }
 
-/* Put colors here */
+/* Background color */
 body {
-    background-color: #57A773;
+    background-color: #48ACF0;;
     font-family: var(--print-font);
 }
 
@@ -39,6 +34,8 @@ h2 {
     background-color: #F2EFEA;
 }
 
+
+/* Green Button */
 .bn632-hover {
     width: 160px;
     font-size: 16px;
@@ -56,7 +53,6 @@ h2 {
     transition: all .4s ease-in-out;
 }
 
-/* Green Button */
 .bn632-hover:hover {
     background-position: 100% 0;
     -o-transition: all .4s ease-in-out;
@@ -114,7 +110,7 @@ h2 {
             #e2373f);
     box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }
-
+/* Logout button styling */
 #logout {
     max-width: 12%;
     padding: 10px;
@@ -128,6 +124,9 @@ h2 {
 #logout:hover {
     color: #D7263D
 }
+
+
+/* BREAKPOINTS BELOW */
 
 /* Tablet View */
 @media screen and (max-width: 1391px) {
