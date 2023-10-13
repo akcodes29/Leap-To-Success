@@ -1,6 +1,7 @@
 /* Water BG image  */
 body {
     background-image: url("../images/path_bg_img.png");
+    background-color: #48ACF0;
 }
 
 /* Main lilypad and text within */
@@ -10,6 +11,10 @@ body {
     height:250px;
     background-image: url("../images/lilypads/lilypad G1.png");
     background-size: cover;
+  }
+/* Changes font size of number of goals line*/
+  #goal {
+    font-size: 200%;
   }
 
 /* Happy/Sad Emotes */
@@ -23,7 +28,6 @@ body {
     max-width: 45%;
     min-width: 30%;
 }
-
 .sImg {
     max-width: 20%;
     margin-left: 38%;
@@ -33,7 +37,11 @@ body {
 h1 {
     display: none;
 }
-
+/* Changes color of "Hoppin' Day" title */
+h2 {
+    color:white;
+}
+/* Edits position of Logout button on student view page  */
 #logout {
     margin-left: 80%;
     margin-top: 5%;

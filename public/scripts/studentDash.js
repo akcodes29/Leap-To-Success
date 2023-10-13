@@ -79,13 +79,13 @@ function start() {
             const studentGoalDiv = document.createElement('div');
             studentGoalDiv.className = 'student';
             studentGoalDiv.innerHTML = `
-        <p>Daily Goal: ${student.dailyGoal}</p>
+            <br><br>Daily Goal: ${student.dailyGoal}
         `
             goalDiv.appendChild(studentGoalDiv);
         })
     })
 }
-start()
+
 
 // Show Goal on large lily pad
 function renderGoal() {
