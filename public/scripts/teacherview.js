@@ -1,7 +1,7 @@
 const studentListDiv = document.getElementById('studentList');
 
 function start(){
-fetch('/api/student', {
+fetch('/api/student/teach', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',

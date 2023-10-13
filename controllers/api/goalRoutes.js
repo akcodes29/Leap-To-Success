@@ -3,11 +3,11 @@ const Goal = require('../../models/Goals');
 
 
   //route to get goal by student id 
-  router.get('/:id', async (req, res) => {
+  router.get('/', async (req, res) => {
     try {
       const myGoals = await Goal.findAll({
         where: {
-          student_id: req.params.id,
+          student_id: req.session.user_id,
         },
       });
   
