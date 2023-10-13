@@ -1,0 +1,41 @@
+/* Hides site title */
+#main-title {
+    display: none;
+}
+
+/* Edits "Add new student" title */
+h1 {
+    padding: 3%;
+    color: #F2EFEA;
+    font-family: var(--title-font);
+    font-size: 70px;
+}
+
+/* Sets background image properties */
+body {
+    background-image: url("../images/path_bg_img.png");
+    background-color: #48ACF0;
+    background-repeat: repeat;
+}
+
+/* Changes size of new student form section */
+.studentForm {
+    font-size: 150%;
+}
+
+/* Changes color for form labels */
+label{
+    color: #F2EFEA;
+}
+
+/* Changes input fields borders */
+input{
+    border-radius: 10px;
+    border:none;
+    padding: 10px;
+}
+
+/* Save button sizing */
+#generateCredentials {
+    font-size: 100%;
+}
