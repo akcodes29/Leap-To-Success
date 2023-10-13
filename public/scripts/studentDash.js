@@ -1,6 +1,10 @@
 // Selects necessary elements 
 const bigLilyPad = document.querySelector('#goal-2');
 const smallLilyPad = document.querySelector('.sImg');
+const currentGoalDiv = document.getElementById('goal-2');
+
+let goals;
+let index = 0;
 
 let counter = 1;
 // Function to handle change of large lily pad 
@@ -45,14 +49,18 @@ $(document).on('click', '#happy-face', function (event) {
     event.preventDefault();
     leapFrogger();
     happyFace();
-    renderGoal();
+
+    changeGoal();
+
 });
 
 $(document).on('click', '#sad-face', function (event) {
     event.preventDefault();
     leapFrogger();
     sadFace();
-    renderGoal();
+
+    changeGoal();
+
 });
 
 
@@ -104,4 +112,36 @@ function renderGoal() {
 
 }
 
+
+// Show Goal on large lily pad
+function renderGoal() {
+    fetch('/api/goal', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+    }).then((response) => response.json()).then((res) => {
+        goals = res;
+        console.log(goals)
+        // data.forEach((goal) => {
+        //     const currentGoalDiv = document.getElementById('#goal-2');
+        //     currentGoalDiv.innerHTML = `
+        //     <p>This is our goal</p>
+        //     `
+        // })
+        
+        currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
+        
+    })
+
+}
+
+function changeGoal() {
+    index++;
+    currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
+}
+
+
+start()
 renderGoal()

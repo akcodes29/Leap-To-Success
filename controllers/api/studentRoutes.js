@@ -79,8 +79,20 @@ router.post('/login', async (req, res) => {
 //     });
 //  });
 
- // Try this for getting all students by teacher id
+ 
  router.get('/', (req, res) => { 
+  Student.findAll({
+    where: {
+      id: req.session.user_id,
+    },
+  }).then((studentData) => {
+    res.json(studentData);
+  });
+
+ });
+
+// Try this for getting all students by teacher id
+ router.get('/teach', (req, res) => { 
   Student.findAll({
     where: {
       teacher_id: req.session.user_id,
@@ -90,6 +102,7 @@ router.post('/login', async (req, res) => {
   });
 
  });
+
 
 //route to get students by id 
 router.get('/:id', async (req, res) => {
