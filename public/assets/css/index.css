@@ -116,10 +116,17 @@ h2 {
 }
 
 #logout {
-    max-width: 20%;
+    max-width: 12%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
     font-size: xx-large;
     margin-left: 70%;
     margin-top: 0%
+}
+
+#logout:hover {
+    color: #D7263D
 }
 
 /* Tablet View */
