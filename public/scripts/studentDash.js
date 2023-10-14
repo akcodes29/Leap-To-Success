@@ -9,11 +9,11 @@ let index = 0;
 let counter = 1;
 // Function to handle change of large lily pad 
 function leapFrogger() {
-    if(counter == 0) {
+    if (counter == 0) {
         bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G1.png')";
         goalDiv.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";
         counter++;
-    } else if ( counter == 1) {
+    } else if (counter == 1) {
         bigLilyPad.style.backgroundImage = "url('assets/images/lilypads/lilypad G2.png')";
         goalDiv.style.backgroundImage = "url('assets/images/lilypads/lilypad G3.png')";
         counter++;
@@ -122,7 +122,7 @@ function renderGoal() {
     }).then((response) => response.json()).then((res) => {
         goals = res;
         console.log(goals)
-    
+
         currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
     })
 }
@@ -132,9 +132,16 @@ function changeGoal() {
     currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
 }
 //Changes logout button to a sun
- function sunnyDay() {
+function sunnyDay() {
     document.querySelector('#logout').innerHTML = `<img width="150px" height="150px" src="assets/images/icons/son.png">`
- }
+}
+
+function showModal() {
+    if (index > goals.length) {
+        document.querySelector('#happy-face').innerHTML = `<button id="happy-face" value="yes" data-bs-toggle="modal" data-bs-target="#Modal"><img class="mImg" src="assets/images/icons/happy frog.png" alt="smiley face"></button>`
+        document.querySelector('#sad-face').innerHTML = `<button id="sad-face" value="no" data-bs-toggle="modal" data-bs-target="#Modal"><img class="mImg" src="assets/images/icons/sad frog.png"alt="frowny face"></button>`
+    }
+}
 
 sunnyDay()
 start()
