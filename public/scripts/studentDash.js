@@ -131,7 +131,11 @@ function changeGoal() {
     index++;
     currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
 }
+//Changes logout button to a sun
+ function sunnyDay() {
+    document.querySelector('#logout').innerHTML = `<img width="150px" height="150px" src="assets/images/icons/son.png">`
+ }
 
-
+sunnyDay()
 start()
 renderGoal()

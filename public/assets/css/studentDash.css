@@ -43,6 +43,7 @@ h2 {
 }
 /* Edits position of Logout button on student view page  */
 #logout {
+    background-color: #ffffff00;
     margin-left: 80%;
     margin-top: 5%;
 }
