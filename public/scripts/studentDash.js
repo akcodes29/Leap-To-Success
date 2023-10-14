@@ -26,11 +26,11 @@ function leapFrogger() {
 //Functions for small lily pad movement
 function happyFace() {
     if (counter == 0) {
-        smallLilyPad.src = 'assets/images/lilypads/lilypad G2.png'
+        smallLilyPad.src = 'assets/images/lilypads/lilypad F2.png'
     } else if (counter == 1) {
-        smallLilyPad.src = 'assets/images/lilypads/lilypad G3.png'
+        smallLilyPad.src = 'assets/images/lilypads/lilypad F3.png'
     } else if (counter == 2) {
-        smallLilyPad.src = 'assets/images/lilypads/lilypad G1.png'
+        smallLilyPad.src = 'assets/images/lilypads/lilypad F1.png'
     };
 };
 
