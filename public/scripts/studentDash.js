@@ -85,32 +85,6 @@ function start() {
     })
 }
 
-
-// Show Goal on large lily pad
-function renderGoal() {
-    fetch('/api/goals', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-    }).then((response) => response.json()).then((data) => {
-        console.log(data)
-        data.forEach((student) => {
-            const studentDiv = document.createElement('div');
-            studentDiv.className = 'student';
-            studentDiv.innerHTML = `
-            <h3>${student.firstName} ${student.lastName}</h3>
-            <p>Username: ${student.userName}</p>
-            <p>Password: ${student.password}</p>
-            <p>Daily Goal: ${student.dailyGoal}</p>
-            `
-            studentListDiv.appendChild(studentDiv);
-        })
-    })
-
-}
-
 // Show Goal on large lily pad
 function renderGoal() {
     fetch('/api/goal', {
