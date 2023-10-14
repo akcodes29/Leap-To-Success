@@ -22,8 +22,6 @@ const signUp = async (event) => {
     }
   };
 
-// document.querySelector('.signup-form').addEventListener('submit', signUp);
-
  //Event listener v2 - removes console error
 $(document).on('submit', '.signup-form', function (event) {
   signUp(event)

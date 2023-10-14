@@ -11,8 +11,6 @@ const logout = async () => {
       alert('Failed to log out.');
     }
   };
-  
-  // document.querySelector('#logout').addEventListener('click', logout);
 
  //Event listener v2 - removes console error
   $(document).on('click', '#logout',function(){

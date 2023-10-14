@@ -15,14 +15,11 @@ const seedDatabase = async() => {
         returning: true,
     });
     const students = await Student.bulkCreate(studentData, {
-        // Dont know if we need these if we aren't using bcrypt
-        // individualHooks: true,
-        // returning: true,
+        
     });
     const goals = await Goals.bulkCreate(goalData, {
-        // Do I need to put anything here?
+        
     });
-
 
     process.exit(0);
 };

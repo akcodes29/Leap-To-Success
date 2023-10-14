@@ -64,7 +64,6 @@ $(document).on('click', '#sad-face', function (event) {
 });
 
 
-
 //Show # goal on student page 
 const goalDiv = document.getElementById('goal');
 function start() {
@@ -112,7 +111,6 @@ function renderGoal() {
 
 }
 
-
 // Show Goal on large lily pad
 function renderGoal() {
     fetch('/api/goal', {
@@ -124,17 +122,9 @@ function renderGoal() {
     }).then((response) => response.json()).then((res) => {
         goals = res;
         console.log(goals)
-        // data.forEach((goal) => {
-        //     const currentGoalDiv = document.getElementById('#goal-2');
-        //     currentGoalDiv.innerHTML = `
-        //     <p>This is our goal</p>
-        //     `
-        // })
-        
+    
         currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
-        
     })
-
 }
 
 function changeGoal() {

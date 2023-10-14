@@ -1,24 +1,7 @@
 const router = require('express').Router();
 const Student = require('../../models/Student');
 
-
 //CREATE new student
-
-// NEW POST ROUTE
-// router.post('/', async (req, res) => {
-//   //Create a new student
-//   try {
-//     const newStudent = await Student.create({
-//       ...req.body,
-//       teacher_id: req.session.user_id,
-//     });
-
-//     res.status(200).json(newStudent);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
 router.post('/', async (req, res) => {
   try {
     const newStudent = await Student.create({
@@ -71,15 +54,6 @@ router.post('/login', async (req, res) => {
 
 
 //READ
-// Try this for getting all students
-// router.get('/', (req, res) => {
-//     // Get all students from the student table
-//     Student.findAll().then((studentData) => {
-//       res.json(studentData);
-//     });
-//  });
-
- 
  router.get('/', (req, res) => { 
   Student.findAll({
     where: {

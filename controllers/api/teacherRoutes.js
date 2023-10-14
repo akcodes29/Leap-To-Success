@@ -115,23 +115,5 @@ router.post('/logout', (req, res) => {
     }
   });
 
-  // router.post('/createStudent', async (req, res) => {
-  //   try {
-  //     const newStudent = await Student.create(req.body);
-  
-  //     console.log(newStudent)
-  
-  //     req.session.save(() => {
-  //       // req.session.user_id = newStudent.id;
-  //       req.session.logged_in = true;
-  
-  //       res.status(200).json(newStudent);
-  //     });
-      
-  //   } catch (err) {
-  //     console.log("creating student", err)
-  //     res.status(400).json(err);
-  //   }
-  // });
     
 module.exports = router;

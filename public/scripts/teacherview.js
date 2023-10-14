@@ -38,10 +38,8 @@ const renderAddNewStudent = async () => {
     if (response.ok) {
         document.location.replace('/addnewstudent');
     }
-
 };
 
-// document.querySelector('.addnewstudent').addEventListener('submit', renderAddNewStudent);
 
  //Event listener v2 - removes console error
 $(document).on('submit', '.addnewstudent', function () {
