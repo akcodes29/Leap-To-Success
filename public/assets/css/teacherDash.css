@@ -43,3 +43,45 @@ h3{
     color:white;
     font-size: 125%;
 }
+
+/* BREAKPOINTS BELOW */
+/* TABLETS/MEDIUM DEVICES */
+@media screen and (max-width: 1123px) {
+ 
+    #addnewstudent{
+        margin-left:0%;
+        margin-bottom: 3%;
+    }
+}
+
+
+/* MOBILE/SMALL DEVICES */
+@media screen and (max-width: 920px) {
+   
+    #logout{
+        margin-left:10%;
+        background-color: #ffffff00;
+        color: #ffd016
+    }
+    #addnewstudent{
+        margin-left:0%;
+        margin-bottom: 3%;
+    }
+
+    h2{
+        font-size: 200%;
+        margin-left: 55%
+    }
+    h3{
+        color:black;
+    }
+    #studentList {
+        text-align: center;
+        background-color: #ffbe0b;
+        border-radius: 15px;
+        padding: 5%;
+    }
+    .student{
+        text-align: center;
+    }
+}
