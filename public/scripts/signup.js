@@ -17,9 +17,15 @@ const signUp = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to log in'); //TODO: need to replace alert with a modal
+        signupError();
       }
     }
+  };
+
+  function signupError() {
+    document.querySelector('#error').innerHTML= 
+    '<div class="alert alert-danger text-center m-3 p-3" role="alert">Failed to register :-( <br> Hint: Password must be at least 8 characters! </div>';
+    return('Failed to signup');
   };
 
  //Event listener v2 - removes console error
