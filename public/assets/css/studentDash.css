@@ -28,6 +28,10 @@ body {
     margin: 0%;
 }
 
+#logout:hover {
+    color:white;
+}
+
 /* Image sizing classes  */
 .mImg {
     max-width: 45%;
