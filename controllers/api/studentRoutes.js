@@ -9,12 +9,12 @@ router.post('/', async (req, res) => {
       teacher_id: req.session.user_id,
     });
 
-    req.session.save(() => {
+    // req.session.save(() => {
       
-      req.session.logged_in = true;
+      // req.session.logged_in = true;
 
       res.status(200).json(newStudent);
-    });
+    // });
   } catch (err) {
     res.status(400).json(err);
   }

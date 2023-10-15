@@ -24,7 +24,7 @@ fetch('/api/student/teach', {
 
 }
 
-start()
+// start()
 
 
 const renderAddNewStudent = async () => {
@@ -41,7 +41,7 @@ const renderAddNewStudent = async () => {
 };
 
 
- //Event listener v2 - removes console error
-$(document).on('submit', '.addnewstudent', function () {
-    renderAddNewStudent();
-});
+//  //Event listener v2 - removes console error
+// $(document).on('submit', '.addnewstudent', function () {
+//     renderAddNewStudent();
+// });

@@ -1,19 +1,30 @@
-<link rel="stylesheet" href="./assets/css/teacherDash.css">
+<link rel="stylesheet" href="./assets/css/teacherDash.css" />
 <h1>Teacher Dashboard</h1>
 
 <div class="row">
   <div class="col-12 mb-4 text-center">
-    <h2>Welcome, {{firstName}}!</h2>
+    <h2>Welcome, {{teacher.firstName}}!</h2>
   </div>
 </div>
 
-  <div id="studentList"></div>
+<div id="studentList">
+  {{#each teacher.students as |student|}}
+    <div class="student">
+      <h3>{{student.firstName}} {{student.lastName}}</h3>
+      <p>Username: {{student.userName}}</p>
+      <p>Password: {{student.password}}</p>
+      <p>Daily Goal: {{student.dailyGoal}}</p>
+    </div>
+  {{/each}}
+</div>
 
-    
-    <!-- button to add new student, directs user to add new student page -->
+<!-- button to add new student, directs user to add new student page -->
 <form class="addnewstudent pt-3 mt-4">
-    <a href=""><button type="submit" id="addnewstudent"  class="btn btn-warning btn-lg mb-4"  style="width:270px;">Add New Student</button></a>
-</form>  
+  <a href=""><button
+      type="submit"
+      id="addnewstudent"
+      class="btn btn-warning btn-lg mb-4"
+      style="width:270px;"
+    ><a href="/addnewstudent">Add New Student</a></button></a>
+</form>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>       
-<script src="./scripts/teacherview.js"></script>

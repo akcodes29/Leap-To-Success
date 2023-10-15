@@ -2,6 +2,20 @@ const router = require('express').Router();
 const Goal = require('../../models/Goals');
 
 
+//route to create a new goal
+router.post('/', async (req, res) => {
+    try {
+      const newGoal = await Goal.create({
+        ...req.body,
+        teacher_id: req.session.user_id,
+      });
+  
+      res.status(200).json(newGoal);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
   //route to get goal by student id 
   router.get('/', async (req, res) => {
     try {
