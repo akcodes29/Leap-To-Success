@@ -103,6 +103,10 @@ function renderGoal() {
 
 function changeGoal() {
     index++;
+    if(index >= goals.length) {
+        // console.log("You have no more goals for the day!");
+        currentGoalDiv.innerHTML = `<br><br>You have no more goals for the day!`;
+    }
     currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
 }
 //Changes logout button to a sun
