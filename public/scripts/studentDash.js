@@ -111,7 +111,7 @@ function changeGoal() {
 }
 //Changes logout button to a sun
 function sunnyDay() {
-    document.querySelector('#logout').innerHTML = `<img width="150px" height="150px" src="assets/images/icons/son.png">`
+    document.querySelector('#logout').innerHTML = `<img width="150px" height="150px" src="assets/images/icons/son.png"<p>Logout</p>`
 }
 
 function showModal() {

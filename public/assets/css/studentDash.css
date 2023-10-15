@@ -23,6 +23,11 @@ body {
     border: none;
 }
 
+#logout {
+    padding:0%;
+    margin: 0%;
+}
+
 /* Image sizing classes  */
 .mImg {
     max-width: 45%;
@@ -40,6 +45,8 @@ h1 {
 /* Changes color of "Hoppin' Day" title */
 h2 {
     color:white;
+    padding: 0%;
+    margin: 0%;
 }
 /* Edits position of Logout button on student view page  */
 #logout {
