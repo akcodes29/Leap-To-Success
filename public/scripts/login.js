@@ -17,7 +17,7 @@ var loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to log in THIS ERROR'); //TODO: need to replace alert with a modal
+        loginError()
       }
     }
     if (email && password && isStudent) {
@@ -31,10 +31,16 @@ var loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/studentprofile');
       } else {
-        alert('Failed to log in THIS ERROR'); //TODO: need to replace alert with a modal
+        loginError(); 
       }
     }
   };
+
+function loginError() {
+  document.querySelector('#error').innerHTML= 
+  '<div class="alert alert-danger text-center m-3 p-3" role="alert">Failed to login :-( <br> Try a different username or password ! </div>';
+  return('Failed to log in')
+};
 
  //Event listener v2 - removes console error
   $(document).on('submit', '.login-form', function (event) {
