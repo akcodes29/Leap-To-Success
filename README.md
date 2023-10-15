@@ -12,13 +12,13 @@ N/A
 
 Open <a href="https://aads10323-501dfea30cfd.herokuapp.com/">this link</a> in your favorite browser to get started! Upon launch you will have the option to login or sign up. 
 
-If you're a student, login with the credentials provided to you by your teacher making sure to click the check-box below. Once logged in you will see your name, your total amount of daily goals, your current daily goal and two frog emotes. If you've completed your goal, click the smiling frog to the right. If not click the sad frog to the left. Once this has been clicked your next goal will be displayed on screen and your path will move forward! Once complete you can log out by clicking the button at the top of the screen.
+If you're a student, login with the credentials provided to you by your teacher making sure to click the check-box below. Once logged in you will see your name, your total amount of daily goals, your current daily goal and two frog emotes. If you've completed your goal, click the smiling frog to the right. If not click the sad frog to the left. Once this has been clicked your next goal will be displayed on screen and your path will move forward! Once complete you can log out by clicking the sun button at the top of the screen.
 
-![Image of student dashboard]()
+![Image of student dashboard](https://i.gyazo.com/31860d257f2a51730ceafc91ac7f8fdb.png)
 
 If you're a teacher, once you login you will be taken to a dashboard displaying all of the students you currently have registered. You can click the "Add New Student" button below to create new accounts for your students. Once their information is saved you can view their information and login credentials on the main dashboard.
 
-![Image of teacher dashboard]()
+![Image of teacher dashboard](https://i.gyazo.com/1a1156a2f08a5ed4fc350f98abeee199.png)
 
 ## Credits
 
