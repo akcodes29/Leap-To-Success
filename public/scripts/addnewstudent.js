@@ -1,5 +1,6 @@
 // const Goals = require("../../models/Goals");
-
+let teacherVar = '';
+let studentVar = '';
 const dailyGoal = document.getElementById('goals');
 const goalContainer = document.getElementById('goalContainer');
 
@@ -12,7 +13,7 @@ function savingGoals() {
 //     goalsArray.push(goal);
 //   }
     document.querySelectorAll('.allgoals').forEach(item => {
-    const object = { name: item.value.trim(), teacher_id: req.session.user_id }
+    const object = { name: item.value.trim(), teacher_id: teacherVar, student_id: studentVar }
     goalsArray.push(object);
 });
 }
@@ -51,25 +52,9 @@ const createStudent = async (event) => {
                 body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal}),
                 headers: { 'Content-Type': 'application/json' },
             })
-console.log(response.id)
+            console.log(response.id)
 
-
-
-//   const goals = await Goals.bulkCreate(goalsArray, {
-//         student_id: response.id, 
-    
-//     })
-
-
-
-   .then((response) => {
-    console.log(response.id);
-// Goals.bulkCreate(goalsArray).then(() => {
-//     console.log('success');
-    response.json().then((data) => {
-        console.log(data);
-    });
-});
+           
   }
 // const createGoal = await fetch()
 //             if(response.ok) {
