@@ -38,12 +38,12 @@ Student.init(
         dailyGoal: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            
         },
-        dailyScore: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
+       dailyScore: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+       },
         teacher_id: {
             //Foreign Key
             type: DataTypes.INTEGER,

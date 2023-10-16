@@ -131,7 +131,7 @@ function sunnyDay() {
 
 // Write Function to update Daily Score in database
 const updateScore = async () => {
-    await fetch('/api/student', {
+    await fetch('/api/student/:id', {
         method: 'PUT',
         // Figure out how to pass scoreVar through body
         body: `{"dailyScore": "${scoreVar}"}`,

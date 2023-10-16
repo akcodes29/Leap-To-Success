@@ -133,10 +133,11 @@ router.get('/login', (req, res) => {
 
 // Updates Student by ID
 router.put('/:id', async (req, res) => {
+  console.log(req.body)
   try {
     const dailyScore = await Student.update(req.body, {
       where: {
-        id: req.params.id,
+        id: req.session.user_id,
       },
     });
     if (!dailyScore) {
