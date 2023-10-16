@@ -22,54 +22,54 @@ router.get('/signup', async (req, res) => {
 
 
 //WHAT ROUTE IS THIS??
-  router.get('/project/:id', async (req, res) => {
-    try {
-      const teacherData = await Teacher.findByPk(req.params.id, {
-        include: [
-          {
-            model: Teacher,
-            attributes: ['email'],
-          },
-        ],
-      });
-  
-      const teacher = teacherData.get({ plain: true });
-  
-      res.render('project', {
-        ...project,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+router.get('/project/:id', async (req, res) => {
+  try {
+    const teacherData = await Teacher.findByPk(req.params.id, {
+      include: [
+        {
+          model: Teacher,
+          attributes: ['email'],
+        },
+      ],
+    });
+
+    const teacher = teacherData.get({ plain: true });
+
+    res.render('project', {
+      project,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 // Use withAuth middleware to prevent access to route - TEACHER VIEW
-router.get('/profile', withAuth, async(req, res) => {
-    try {
-      // Find the logged in user based on the session ID
-      console.log(req.session)
-      console.log(req.session.user_id)
-      const teacherData = await Teacher.findByPk(req.session.user_id, {
-        attributes: { exclude: ['password'] },
-        // include: [{ model: Teacher }],
-      });
-  console.log(teacherData)
-      const teacher = teacherData.get({ plain: true });
-  
-      res.render('teacherview', {
-        ...teacher,
-        logged_in: true
-      });
-    } catch (err) {
-      console.log("Teacher", err)
-      res.status(500).json(err);
-    }
-  });
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    console.log(req.session)
+    console.log(req.session.user_id)
+    const teacherData = await Teacher.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [Student],
+    });
+    const teacher = teacherData.get({ plain: true });
+    console.log(teacher)
+
+    res.render('teacherview', {
+      teacher,
+      logged_in: true
+    });
+  } catch (err) {
+    console.log("Teacher", err)
+    res.status(500).json(err);
+  }
+});
 
 //   Use withAuth middleware to prevent access to route - STUDENT VIEW
-router.get('/studentprofile', withAuth, async(req, res) => {
+router.get('/studentprofile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const studentData = await Student.findByPk(req.session.user_id, {
@@ -85,7 +85,7 @@ router.get('/studentprofile', withAuth, async(req, res) => {
     const student = studentData.get({ plain: true });
 
     res.render('studenthomepage', {
-      ...student,
+      student,
       logged_in: true
     });
   } catch (err) {
@@ -94,24 +94,24 @@ router.get('/studentprofile', withAuth, async(req, res) => {
   }
 });
 
-  router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
-    if (req.session.logged_in) {
-      res.redirect('/profile');
-      return;
-    }
-  
-    res.render('login');
-  });
-
-  router.get('/addnewstudent', async (req, res) => {
-    try {
-      res.render('addnewstudent');
-    } catch (err) {
-      res.status(500).json(err);
-    }
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
   }
-  );
 
-  
+  res.render('login');
+});
+
+router.get('/addnewstudent', async (req, res) => {
+  try {
+    res.render('addnewstudent');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+);
+
+
 module.exports = router;

@@ -17,6 +17,7 @@ fetch('/api/student/teach', {
         <p>Username: ${student.userName}</p>
         <p>Password: ${student.password}</p>
         <p>Daily Goal: ${student.dailyGoal}</p>
+        <p>Daily Score: ${student.dailyScore}</p>
         `
         studentListDiv.appendChild(studentDiv);
     })
@@ -24,7 +25,7 @@ fetch('/api/student/teach', {
 
 }
 
-start()
+// start()
 
 
 const renderAddNewStudent = async () => {
@@ -41,7 +42,7 @@ const renderAddNewStudent = async () => {
 };
 
 
- //Event listener v2 - removes console error
-$(document).on('submit', '.addnewstudent', function () {
-    renderAddNewStudent();
-});
+//  //Event listener v2 - removes console error
+// $(document).on('submit', '.addnewstudent', function () {
+//     renderAddNewStudent();
+// });

@@ -5,6 +5,7 @@
         "userName": "HarryP",
         "password": "chosenOne",
         "dailyGoal": 5,
+        "dailyScore": 0,
         "teacher_id": 1
     },
     {
@@ -13,6 +14,7 @@
         "userName": "RonW",
         "password": "bestFriend",
         "dailyGoal": 4,
+        "dailyScore": 0,
         "teacher_id": 2
     },
     {
@@ -21,6 +23,7 @@
         "userName": "HermoineG",
         "password": "smartest",
         "dailyGoal": 6,
+        "dailyScore": 0,
         "teacher_id": 2
     },
     {
@@ -29,6 +32,7 @@
         "userName": "DracoM",
         "password": "antihero",
         "dailyGoal": 6,
+        "dailyScore": 0,
         "teacher_id": 3
     },
     {
@@ -37,6 +41,7 @@
         "userName": "LunaL",
         "password": "quibbler",
         "dailyGoal": 5,
+        "dailyScore": 0,
         "teacher_id": 4
     },
     {
@@ -45,6 +50,7 @@
         "userName": "CedricD",
         "password": "hufflepuff",
         "dailyGoal": 4,
+        "dailyScore": 0,
         "teacher_id": 5
     }
 ]
