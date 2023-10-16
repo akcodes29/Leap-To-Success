@@ -1,17 +1,13 @@
-// const Goals = require("../../models/Goals");
-let teacherVar = '';
-let studentVar = '';
+// Declarations
 const dailyGoal = document.getElementById('goals');
 const goalContainer = document.getElementById('goalContainer');
 
+let teacherVar = '';
+let studentVar = '';
 const goalsArray = []
 
+// Function to save goals into an array of objects
 function savingGoals() {
-    //     const ourGoals = document.querySelectorAll('.goal');
-    //   for (let i = 0; i < goalContainer.length; i++) {
-    //     const goal = document.getElementById(`goal${i + 1}`).value.trim();
-    //     goalsArray.push(goal);
-    //   }
     document.querySelectorAll('.allgoals').forEach(item => {
         const object = { name: item.value.trim(), teacher_id: teacherVar, student_id: studentVar }
         goalsArray.push(object);
@@ -19,6 +15,7 @@ function savingGoals() {
     createGoals();
 }
 
+// Function to save new goals to database
 const createGoals = async() => {
     await fetch('/api/goal/many', {
         method: 'POST',
@@ -33,7 +30,7 @@ const createGoals = async() => {
 };
 
 
-
+// Creates new input element for each new goal selected 
 dailyGoal.addEventListener('change', (event) => {
     goalContainer.innerHTML = '';
     for (let i = 0; i < event.target.value; i++) {
@@ -50,6 +47,8 @@ dailyGoal.addEventListener('change', (event) => {
 
     }
 })
+
+// Function to create and save new student in database
 const createStudent = async (event) => {
     event.preventDefault();
 
@@ -59,10 +58,8 @@ const createStudent = async (event) => {
     const password = document.getElementById('password').value.trim();
     const dailyGoal = document.getElementById('goals').value.trim();
 
-//   savingGoals();
     
         if(firstName && lastName && userName && password && dailyGoal) {
-    // const endpoint = isStudent? '/api/student' : '/api/teacher/createStudent';
             const response = await fetch('/api/student', {
                 method: 'POST',
                 body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal}),
@@ -75,21 +72,19 @@ const createStudent = async (event) => {
                 studentVar = data.id;
                 teacherVar = data.teacher_id;
                 console.log(data)
-              });
+              })
               savingGoals();
               console.log(goalsArray)
-
-           
+              if(studentVar){
+                document.location.replace('/profile');
+              } else {
+                alert('Failed to create new student');
+              }
+              
   }
-// const createGoal = await fetch()
-//             if(response.ok) {
-//                 document.location.replace('/profile');
-//             } else {
-//                 alert('Failed to create new student'); //TODO: need to replace alert with a modal
-//             }
-//         }
 };
 
+//Event listener 
 document
     .querySelector('.studentForm')
     .addEventListener('submit', createStudent);
