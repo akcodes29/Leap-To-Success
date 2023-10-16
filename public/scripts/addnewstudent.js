@@ -6,6 +6,12 @@ let teacherVar = '';
 let studentVar = '';
 const goalsArray = []
 
+function registerError() {
+    document.querySelector('#error').innerHTML= 
+    '<div class="alert alert-danger text-center m-3 p-3" role="alert"> Failed to register new student. <br> Hint: Password must be at least 8 characters! </div>';
+    return('Failed to register new student.')
+  };
+
 // Function to save goals into an array of objects
 function savingGoals() {
     document.querySelectorAll('.allgoals').forEach(item => {
@@ -16,17 +22,15 @@ function savingGoals() {
 }
 
 // Function to save new goals to database
-const createGoals = async() => {
+const createGoals = async () => {
     await fetch('/api/goal/many', {
         method: 'POST',
         body: JSON.stringify(goalsArray),
         headers: { 'Content-Type': 'application/json' },
     }).then(function (response) {
         return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
-      });
+    })
+    .catch(err => console.log(err))
 };
 
 
@@ -58,30 +62,31 @@ const createStudent = async (event) => {
     const password = document.getElementById('password').value.trim();
     const dailyGoal = document.getElementById('goals').value.trim();
 
-    
-        if(firstName && lastName && userName && password && dailyGoal) {
-            const response = await fetch('/api/student', {
-                method: 'POST',
-                body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal}),
-                headers: { 'Content-Type': 'application/json' },
-            })
+
+    if (firstName && lastName && userName && password && dailyGoal) {
+        const response = await fetch('/api/student', {
+            method: 'POST',
+            body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal }),
+            headers: { 'Content-Type': 'application/json' },
+        })
             .then(function (response) {
                 return response.json();
-              })
-              .then(function (data) {
+            })
+            .then(function (data) {
                 studentVar = data.id;
                 teacherVar = data.teacher_id;
                 console.log(data)
-              })
-              savingGoals();
-              console.log(goalsArray)
-              if(studentVar){
-                document.location.replace('/profile');
-              } else {
-                alert('Failed to create new student');
-              }
-              
-  }
+            })
+            .catch(err => registerError())
+        savingGoals();
+        console.log(goalsArray)
+        if (studentVar) {
+            document.location.replace('/profile');
+        } else {
+            registerError(); 
+        }
+
+    }
 };
 
 //Event listener 
