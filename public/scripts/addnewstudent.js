@@ -44,6 +44,7 @@ dailyGoal.addEventListener('change', (event) => {
         input.setAttribute('type', 'text');
         input.setAttribute('class', 'allgoals');
         label.textContent = `Goal ${i + 1}`;
+        label.classList.add('text-start', 'fs-3', 'p-3');
         input.setAttribute('id', `goal${i + 1}`);
         div.append(label, input);
 
