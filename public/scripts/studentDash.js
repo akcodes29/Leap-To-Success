@@ -3,6 +3,8 @@ const bigLilyPad = document.querySelector('#goal-2');
 const smallLilyPad = document.querySelector('.sImg');
 const currentGoalDiv = document.getElementById('goal-2');
 
+let scoreVar= 0;
+
 let goals;
 let index = 0;
 
@@ -49,8 +51,8 @@ $(document).on('click', '#happy-face', function (event) {
     event.preventDefault();
     leapFrogger();
     happyFace();
-
     changeGoal();
+    addScore();
 
 });
 
@@ -58,8 +60,8 @@ $(document).on('click', '#sad-face', function (event) {
     event.preventDefault();
     leapFrogger();
     sadFace();
-
     changeGoal();
+    subtractScore();
 
 });
 
@@ -120,6 +122,17 @@ function showModal() {
         document.querySelector('#sad-face').innerHTML = `<button id="sad-face" value="no" data-bs-toggle="modal" data-bs-target="#Modal"><img class="mImg" src="assets/images/icons/sad frog.png"alt="frowny face"></button>`
     }
 }
+
+ //Tracks Student Score
+ function addScore() {
+    scoreVar++;
+    console.log(scoreVar)
+ } 
+
+ function subtractScore () {
+    scoreVar--;
+    console.log(scoreVar)
+ }
 
 sunnyDay()
 start()
