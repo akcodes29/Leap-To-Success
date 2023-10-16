@@ -1,3 +1,4 @@
+//Function for teacher and student login 
 var loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -36,6 +37,7 @@ var loginFormHandler = async (event) => {
     }
   };
 
+//Function to display error message
 function loginError() {
   document.querySelector('#error').innerHTML= 
   '<div class="alert alert-danger text-center m-3 p-3" role="alert">Failed to login :-( <br> Try a different username or password ! </div>';

@@ -12,14 +12,11 @@ Student.hasOne(Teacher,{
     foreignKey: 'teacher_id'
 });
 
-//Teacher hasMany Students relationship needs to be added
 Teacher.hasMany(Student, {
     foreignKey: 'teacher_id',
     onDelete: 'CASCADE',
 });
 
-
-//Goals table relationships -- work in progress 
 Student.hasMany(Goals, {
     foreignKey: 'student_id',
     onDelete: 'CASCADE', 

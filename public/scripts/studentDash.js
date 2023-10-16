@@ -4,11 +4,10 @@ const smallLilyPad = document.querySelector('.sImg');
 const currentGoalDiv = document.getElementById('goal-2');
 
 let scoreVar= 0;
-
 let goals;
 let index = 0;
-
 let counter = 1;
+
 // Function to handle change of large lily pad 
 function leapFrogger() {
     if (counter == 0) {
@@ -25,6 +24,7 @@ function leapFrogger() {
         counter = 0;
     };
 };
+
 //Functions for small lily pad movement
 function happyFace() {
     if (counter == 0) {
@@ -103,16 +103,15 @@ function renderGoal() {
     })
 }
 
+// Function to change goal
 function changeGoal() {
     index++;
     if(index >= goals.length) {
-        // console.log("You have no more goals for the day!");
         currentGoalDiv.innerHTML = `<br><br>You have no more goals for the day!`;
-        // Trigger Update Score function
         updateScore();
-    }
-    // currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
+    }  
 }
+
 //Changes logout button to a sun
 function sunnyDay() {
     document.querySelector('#logout').innerHTML = `<img width="150px" height="150px" src="assets/images/icons/son.png"<p>Logout</p>`
@@ -129,11 +128,10 @@ function sunnyDay() {
     console.log(scoreVar)
  }
 
-// Write Function to update Daily Score in database
+// Function to update Daily Score in database
 const updateScore = async () => {
     await fetch('/api/student/:id', {
         method: 'PUT',
-        // Figure out how to pass scoreVar through body
         body: `{"dailyScore": "${scoreVar}"}`,
         headers: { 'Content-Type': 'application/json' },
     }).then((response) => {

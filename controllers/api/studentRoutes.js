@@ -8,18 +8,14 @@ router.post('/', async (req, res) => {
       ...req.body,
       teacher_id: req.session.user_id,
     });
-
-    // req.session.save(() => {
-
-    // req.session.logged_in = true;
-
     res.status(200).json(newStudent);
-    // });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+
+//Login route for student
 router.post('/login', async (req, res) => {
   try {
     const studentData = await Student.findOne({ where: { userName: req.body.email } });
@@ -53,7 +49,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-//READ
+//Find all students 
 router.get('/', (req, res) => {
   Student.findAll({
     where: {
@@ -65,7 +61,7 @@ router.get('/', (req, res) => {
 
 });
 
-// Try this for getting all students by teacher id
+// Get all students by teacher id
 router.get('/teach', (req, res) => {
   Student.findAll({
     where: {
@@ -100,28 +96,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-//DELETE
-//Delete student by id
-router.delete('/:id', async (req, res) => {
-  try {
-    const studentData = await Student.destroy({
-      where: {
-        id: req.params.id
-      },
-    });
-
-    if (!studentData) {
-      res.status(404).json({ message: 'No student found with this id!' });
-      return;
-    }
-
-    res.status(200).json(studentData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
 // Login route
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -130,6 +104,7 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
 
 // Updates Student by ID
 router.put('/:id', async (req, res) => {
@@ -150,5 +125,25 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+//DELETE
+//Delete student by id
+router.delete('/:id', async (req, res) => {
+  try {
+    const studentData = await Student.destroy({
+      where: {
+        id: req.params.id
+      },
+    });
+
+    if (!studentData) {
+      res.status(404).json({ message: 'No student found with this id!' });
+      return;
+    }
+
+    res.status(200).json(studentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

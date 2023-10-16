@@ -3,12 +3,10 @@ const { Teacher } = require('../../models');
 const Student = require('../../models/Student');
 
 
-//CREATE (from the sign-up page)
+//CREATE a new teacher (from the sign-up page) 
 router.post('/', async (req, res) => {
-    // create a new teacher
     try {
       const teacherData = await Teacher.create(req.body);
-
       req.session.save(() => {
         req.session.user_id = teacherData.id;
         req.session.logged_in = true;
@@ -53,6 +51,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//Logout route
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -64,15 +63,14 @@ router.post('/logout', (req, res) => {
 });
   
   //READ
-  // Get all teachers, used for development purposes
+// Get all teachers
   router.get('/', (req, res) => {
-      // Get all teachers from the teacher table
       Teacher.findAll().then((teacherData) => {
         res.json(teacherData);
       });
    });
   
-  //route to get teachers by id 
+//route to get teachers by id 
   router.get('/:id', async (req, res) => {
     try {
       const myTeacher = await Teacher.findOne({

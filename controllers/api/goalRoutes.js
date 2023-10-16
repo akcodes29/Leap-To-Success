@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
     }
   });
 
+  //route to bulk create many goals
   router.post('/many', async (req , res)=> {
     try {
       const newGoalz = Goal.bulkCreate(req.body, {});
