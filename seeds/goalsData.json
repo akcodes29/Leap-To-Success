@@ -20,7 +20,27 @@
         "student_id": "2"
     },
     {
+        "name": "Ron will not lose Scabbers. ",
+        "teacher_id": "2",
+        "student_id": "2"
+    },
+    {
+        "name": "Ron will not get jealous of Harry. ",
+        "teacher_id": "2",
+        "student_id": "2"
+    },
+    {
         "name": "Hermione will not use the Time Turner. ",
+        "teacher_id": "2",
+        "student_id": "3"
+    },
+    {
+        "name": "Hermione will not slap Malfoy in the face. ",
+        "teacher_id": "2",
+        "student_id": "3"
+    },
+    {
+        "name": "Hermione will not brew Polyjuice Potions. ",
         "teacher_id": "2",
         "student_id": "3"
     },
