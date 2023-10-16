@@ -7,16 +7,32 @@ const goalContainer = document.getElementById('goalContainer');
 const goalsArray = []
 
 function savingGoals() {
-//     const ourGoals = document.querySelectorAll('.goal');
-//   for (let i = 0; i < goalContainer.length; i++) {
-//     const goal = document.getElementById(`goal${i + 1}`).value.trim();
-//     goalsArray.push(goal);
-//   }
+    //     const ourGoals = document.querySelectorAll('.goal');
+    //   for (let i = 0; i < goalContainer.length; i++) {
+    //     const goal = document.getElementById(`goal${i + 1}`).value.trim();
+    //     goalsArray.push(goal);
+    //   }
     document.querySelectorAll('.allgoals').forEach(item => {
-    const object = { name: item.value.trim(), teacher_id: teacherVar, student_id: studentVar }
-    goalsArray.push(object);
-});
+        const object = { name: item.value.trim(), teacher_id: teacherVar, student_id: studentVar }
+        goalsArray.push(object);
+    });
+    createGoals();
 }
+
+const createGoals = async() => {
+    await fetch('/api/goal/many', {
+        method: 'POST',
+        body: JSON.stringify(goalsArray),
+        headers: { 'Content-Type': 'application/json' },
+    }).then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+      });
+};
+
+
 
 dailyGoal.addEventListener('change', (event) => {
     goalContainer.innerHTML = '';
@@ -43,7 +59,7 @@ const createStudent = async (event) => {
     const password = document.getElementById('password').value.trim();
     const dailyGoal = document.getElementById('goals').value.trim();
 
-  savingGoals();
+//   savingGoals();
     
         if(firstName && lastName && userName && password && dailyGoal) {
     // const endpoint = isStudent? '/api/student' : '/api/teacher/createStudent';
@@ -52,7 +68,16 @@ const createStudent = async (event) => {
                 body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal}),
                 headers: { 'Content-Type': 'application/json' },
             })
-            console.log(response.id)
+            .then(function (response) {
+                return response.json();
+              })
+              .then(function (data) {
+                studentVar = data.id;
+                teacherVar = data.teacher_id;
+                console.log(data)
+              });
+              savingGoals();
+              console.log(goalsArray)
 
            
   }

@@ -16,6 +16,15 @@ router.post('/', async (req, res) => {
     }
   });
 
+  router.post('/many', async (req , res)=> {
+    try {
+      const newGoalz = Goal.bulkCreate(req.body, {});
+      res.json(newGoalz)
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  })
+
   //route to get goal by student id 
   router.get('/', async (req, res) => {
     try {
