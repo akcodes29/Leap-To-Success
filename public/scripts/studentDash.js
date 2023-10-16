@@ -108,19 +108,14 @@ function changeGoal() {
     if(index >= goals.length) {
         // console.log("You have no more goals for the day!");
         currentGoalDiv.innerHTML = `<br><br>You have no more goals for the day!`;
+        // Trigger Update Score function
+        updateScore();
     }
-    currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
+    // currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
 }
 //Changes logout button to a sun
 function sunnyDay() {
     document.querySelector('#logout').innerHTML = `<img width="150px" height="150px" src="assets/images/icons/son.png"<p>Logout</p>`
-}
-
-function showModal() {
-    if (index > goals.length) {
-        document.querySelector('#happy-face').innerHTML = `<button id="happy-face" value="yes" data-bs-toggle="modal" data-bs-target="#Modal"><img class="mImg" src="assets/images/icons/happy frog.png" alt="smiley face"></button>`
-        document.querySelector('#sad-face').innerHTML = `<button id="sad-face" value="no" data-bs-toggle="modal" data-bs-target="#Modal"><img class="mImg" src="assets/images/icons/sad frog.png"alt="frowny face"></button>`
-    }
 }
 
  //Tracks Student Score
@@ -133,6 +128,22 @@ function showModal() {
     scoreVar--;
     console.log(scoreVar)
  }
+
+// Write Function to update Daily Score in database
+const updateScore = async () => {
+    await fetch('/api/student', {
+        method: 'PUT',
+        // Figure out how to pass scoreVar through body
+        body: `{"dailyScore": "${scoreVar}"}`,
+        headers: { 'Content-Type': 'application/json' },
+    }).then((response) => {
+        console.log(response);
+        response.json().then((data) => {
+            console.log(data);
+        });
+    });
+};
+
 
 sunnyDay()
 start()

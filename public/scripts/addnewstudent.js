@@ -6,11 +6,12 @@ let teacherVar = '';
 let studentVar = '';
 const goalsArray = []
 
+
 function registerError() {
-    document.querySelector('#error').innerHTML= 
-    '<div class="alert alert-danger text-center m-3 p-3" role="alert"> Failed to register new student. <br> Hint: Password must be at least 8 characters! </div>';
-    return('Failed to register new student.')
-  };
+    document.querySelector('#error').innerHTML =
+        '<div class="alert alert-danger text-center m-3 p-3" role="alert"> Failed to register new student. <br> Hint: Password must be at least 8 characters! </div>';
+    return ('Failed to register new student.')
+};
 
 // Function to save goals into an array of objects
 function savingGoals() {
@@ -30,7 +31,7 @@ const createGoals = async () => {
     }).then(function (response) {
         return response.json();
     })
-    .catch(err => console.log(err))
+        .catch(err => console.log(err))
 };
 
 
@@ -62,12 +63,12 @@ const createStudent = async (event) => {
     const userName = document.getElementById('userName').value.trim();
     const password = document.getElementById('password').value.trim();
     const dailyGoal = document.getElementById('goals').value.trim();
-
+    const dailyScore= 0;
 
     if (firstName && lastName && userName && password && dailyGoal) {
         const response = await fetch('/api/student', {
             method: 'POST',
-            body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal }),
+            body: JSON.stringify({ firstName, lastName, userName, password, dailyGoal, dailyScore }),
             headers: { 'Content-Type': 'application/json' },
         })
             .then(function (response) {
@@ -84,7 +85,7 @@ const createStudent = async (event) => {
         if (studentVar) {
             document.location.replace('/profile');
         } else {
-            registerError(); 
+            registerError();
         }
 
     }

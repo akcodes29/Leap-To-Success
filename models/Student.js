@@ -40,6 +40,10 @@ Student.init(
             allowNull: false,
             
         },
+        dailyScore: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         teacher_id: {
             //Foreign Key
             type: DataTypes.INTEGER,
