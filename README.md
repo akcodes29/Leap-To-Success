@@ -31,6 +31,8 @@ Contributors
 Tutorials & Articles 
 + [This post](https://stackoverflow.com/questions/25291730/change-images-on-click-cycle-through-3-images) on Stack Overflow helped with creating the function to cycle through images on the student homepage.
 + [This video](https://youtu.be/-BFasePbjVw?si=FcoD0UXn-eeevy9h) helped us handle event delegation with Jquery and Handlebars.
++ [This article](https://cssbuttons.app/buttons/28) and [this article](https://cssbuttons.app/buttons/22) helped us with custom buton styling.
++ [This post](https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page) on Stack Overflow helped us with using click events to redirect users to different pages.
 
 Visual Assets
 + Icons and images provided by Abby Johnson.
