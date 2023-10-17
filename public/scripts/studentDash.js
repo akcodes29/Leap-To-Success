@@ -4,10 +4,8 @@ const smallLilyPad = document.querySelector('.sImg');
 const currentGoalDiv = document.getElementById('goal-2');
 
 let scoreVar = 1;
-
 let goals;
 let index = 0;
-
 let counter = 1;
 // Function to handle change of large lily pad 
 function leapFrogger() {
@@ -103,6 +101,7 @@ function renderGoal() {
     })
 }
 
+//Function to change goal displayed on large lilypad 
 function changeGoal() {
     index++;
     if(index >= goals.length) {

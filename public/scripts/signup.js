@@ -1,3 +1,4 @@
+// Function to handle sign up
 const signUp = async (event) => {
     event.preventDefault();
 
@@ -22,6 +23,7 @@ const signUp = async (event) => {
     }
   };
 
+  // Function to display signup error message 
   function signupError() {
     document.querySelector('#error').innerHTML= 
     '<div class="alert alert-danger text-center m-3 p-3" role="alert">Failed to register :-( <br> Hint: Password must be at least 8 characters! </div>';

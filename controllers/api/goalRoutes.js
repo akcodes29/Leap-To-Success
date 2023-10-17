@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Goal = require('../../models/Goals');
 
 
-//route to create a new goal
+// Route to create a new goal
 router.post('/', async (req, res) => {
     try {
       const newGoal = await Goal.create({
@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
     }
   });
 
+  // Route to create many student goals
   router.post('/many', async (req , res)=> {
     try {
       const newGoalz = Goal.bulkCreate(req.body, {});
@@ -25,7 +26,7 @@ router.post('/', async (req, res) => {
     }
   })
 
-  //route to get goal by student id 
+  // Route to get goal by student id 
   router.get('/', async (req, res) => {
     try {
       const myGoals = await Goal.findAll({

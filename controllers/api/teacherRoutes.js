@@ -3,7 +3,7 @@ const { Teacher } = require('../../models');
 const Student = require('../../models/Student');
 
 
-//CREATE (from the sign-up page)
+//CREATE - Route to sign up teacher acct from the sign-up page
 router.post('/', async (req, res) => {
     // create a new teacher
     try {
@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
     }
   });
 
-  //login route v3.0 (from the log-in page)
+//POST - login route v3.0 logs in teacher acct. from the log-in page
 router.post('/login', async (req, res) => {
   try {
     const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
@@ -64,7 +64,7 @@ router.post('/logout', (req, res) => {
 });
   
   //READ
-  // Get all teachers, used for development purposes
+  // Route to get all teachers (mostly used for dev. purposes)
   router.get('/', (req, res) => {
       // Get all teachers from the teacher table
       Teacher.findAll().then((teacherData) => {
@@ -72,7 +72,7 @@ router.post('/logout', (req, res) => {
       });
    });
   
-  //route to get teachers by id 
+  // Route to get teachers by id 
   router.get('/:id', async (req, res) => {
     try {
       const myTeacher = await Teacher.findOne({
@@ -95,7 +95,7 @@ router.post('/logout', (req, res) => {
   });
   
   //DELETE
-  //Delete teacher by id
+  //Route to delete teacher by id
   router.delete('/:id', async(req, res) => {
     try {
       const teacherData = await Teacher.destroy({

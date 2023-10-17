@@ -6,7 +6,7 @@ let teacherVar = '';
 let studentVar = '';
 const goalsArray = []
 
-
+// Function to display error message 
 function registerError() {
     document.querySelector('#error').innerHTML =
         '<div class="alert alert-danger text-center m-3 p-3" role="alert"> Failed to register new student. <br> Hint: Password must be at least 8 characters! </div>';

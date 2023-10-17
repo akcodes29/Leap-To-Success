@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Student = require('../../models/Student');
 
-//CREATE new student
+//CREATE - Route to create a new student
 router.post('/', async (req, res) => {
   try {
     const newStudent = await Student.create({
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+//POST student login route - logs in through collecting user form data 
 router.post('/login', async (req, res) => {
   try {
     const studentData = await Student.findOne({ where: { userName: req.body.email } });
@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-//READ
+//READ - Route to get student by student id 
 router.get('/', (req, res) => {
   Student.findAll({
     where: {
@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
 
 });
 
-// Try this for getting all students by teacher id
+// Route to get all students by teacher id
 router.get('/teach', (req, res) => {
   Student.findAll({
     where: {
@@ -78,7 +78,7 @@ router.get('/teach', (req, res) => {
 });
 
 
-//route to get students by id 
+// Route to get students by id 
 router.get('/:id', async (req, res) => {
   try {
     const myStudent = await Student.findOne({
@@ -100,29 +100,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-//DELETE
-//Delete student by id
-router.delete('/:id', async (req, res) => {
-  try {
-    const studentData = await Student.destroy({
-      where: {
-        id: req.params.id
-      },
-    });
-
-    if (!studentData) {
-      res.status(404).json({ message: 'No student found with this id!' });
-      return;
-    }
-
-    res.status(200).json(studentData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-// Login route
+// GET Login route - checks if student is logged in
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -131,7 +109,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Updates Student by ID
+// Route to updates student by ID
 router.put('/', async (req, res) => {
   console.log(req.body)
   try {
@@ -150,5 +128,25 @@ router.put('/', async (req, res) => {
   }
 });
 
+//DELETE
+// Route to delete student by id
+router.delete('/:id', async (req, res) => {
+  try {
+    const studentData = await Student.destroy({
+      where: {
+        id: req.params.id
+      },
+    });
+
+    if (!studentData) {
+      res.status(404).json({ message: 'No student found with this id!' });
+      return;
+    }
+
+    res.status(200).json(studentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
