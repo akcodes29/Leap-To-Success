@@ -110,6 +110,7 @@ function changeGoal() {
         currentGoalDiv.innerHTML = `<br><br>You have no more goals for the day!`;
         updateScore();
     }  
+    currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
 }
 
 //Changes logout button to a sun
