@@ -111,7 +111,7 @@ function changeGoal() {
         // Trigger Update Score function
         updateScore();
     }
-    // currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
+    currentGoalDiv.innerHTML = `<br><br>${goals[index].name}`;
 }
 //Changes logout button to a sun
 function sunnyDay() {
