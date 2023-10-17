@@ -7,6 +7,7 @@ let scoreVar = 1;
 let goals;
 let index = 0;
 let counter = 1;
+
 // Function to handle change of large lily pad 
 function leapFrogger() {
     if (counter == 0) {
@@ -23,6 +24,7 @@ function leapFrogger() {
         counter = 0;
     };
 };
+
 //Functions for small lily pad movement
 function happyFace() {
     if (counter == 0) {

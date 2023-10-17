@@ -8,17 +8,12 @@ router.post('/', async (req, res) => {
       ...req.body,
       teacher_id: req.session.user_id,
     });
-
-    // req.session.save(() => {
-
-    // req.session.logged_in = true;
-
     res.status(200).json(newStudent);
-    // });
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
 //POST student login route - logs in through collecting user form data 
 router.post('/login', async (req, res) => {
   try {
@@ -53,7 +48,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-//READ - Route to get student by student id 
+//Route to get all students by student id
 router.get('/', (req, res) => {
   Student.findAll({
     where: {
@@ -100,7 +95,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// GET Login route - checks if student is logged in
+// Login route - checks if student is logged in
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -109,7 +104,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Route to updates student by ID
+// Route to update student by ID
 router.put('/', async (req, res) => {
   console.log(req.body)
   try {
@@ -128,7 +123,7 @@ router.put('/', async (req, res) => {
   }
 });
 
-//DELETE
+
 // Route to delete student by id
 router.delete('/:id', async (req, res) => {
   try {

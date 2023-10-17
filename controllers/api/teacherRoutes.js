@@ -63,7 +63,7 @@ router.post('/logout', (req, res) => {
   }
 });
   
-  //READ
+
   // Route to get all teachers (mostly used for dev. purposes)
   router.get('/', (req, res) => {
       // Get all teachers from the teacher table
