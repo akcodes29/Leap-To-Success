@@ -132,7 +132,7 @@ router.get('/login', (req, res) => {
 });
 
 // Updates Student by ID
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
   console.log(req.body)
   try {
     const dailyScore = await Student.update(req.body, {
